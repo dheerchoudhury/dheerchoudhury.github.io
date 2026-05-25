@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redback Autonomous Vehicle | Dheer Roy Choudhury</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .proj-hero { padding: 9rem 0 4rem; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+    .proj-hero::before { content: ''; position: absolute; top: -30%; right: -5%; width: 600px; height: 600px; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%); pointer-events: none; }
+    .proj-meta-bar { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .proj-subtitle { font-size: 1.1rem; color: var(--text2); max-width: 620px; }
+    .proj-info-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin: 3rem 0; }
+    .info-cell { padding: 1.5rem; border-right: 1px solid var(--border); }
+    .info-cell:last-child { border-right: none; }
+    .info-cell-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text3); margin-bottom: 0.4rem; }
+    .info-cell-value { font-size: 0.95rem; color: var(--white); }
+    .proj-content { max-width: 780px; }
+    .proj-content h2 { margin: 3rem 0 1rem; font-size: 1.4rem; }
+    .proj-content p { margin-bottom: 1rem; }
+    .proj-content ul { list-style: none; margin: 0 0 1.5rem; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+    .proj-content ul li { padding: 0.6rem 1rem 0.6rem 1.5rem; color: var(--text2); font-size: 0.925rem; position: relative; }
+    .proj-content ul li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
+    .img-placeholder { width: 100%; aspect-ratio: 16/9; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-lg); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; margin: 2rem 0; color: var(--text3); font-size: 0.85rem; }
+    .img-placeholder .big { font-size: 3rem; opacity: 0.3; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--text3); margin-bottom: 2.5rem; transition: color var(--transition); }
+    .back-link:hover { color: var(--accent); }
+    .next-proj { border-top: 1px solid var(--border); margin-top: 5rem; padding-top: 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    /* Constraints table */
+    .constraints-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+    .constraints-table th { text-align: left; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); }
+    .constraints-table td { padding: 0.85rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.875rem; color: var(--text2); }
+    .constraints-table tr:last-child td { border-bottom: none; }
+    .constraints-table td:first-child { color: var(--white); font-weight: 400; }
+    .met { color: var(--accent) !important; font-size: 0.8rem; }
+    @media (max-width: 768px) { .proj-info-grid { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">Dheer <span>RC</span></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../projects.html" class="active">Projects</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="https://github.com/dheerchoudhury" target="_blank" rel="noopener">GitHub ↗</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="proj-hero">
+  <div class="container">
+    <a href="../projects.html" class="back-link fade-up">← Back to projects</a>
+    <div class="proj-meta-bar fade-up delay-1">
+      <span class="tag">Autonomous</span>
+      <span class="tag">Design</span>
+    </div>
+    <h1 class="fade-up delay-1">Redback Autonomous Vehicle</h1>
+    <p class="proj-subtitle fade-up delay-2">
+      Design &amp; manufacture of a competition autonomous line-following vehicle — DESN1000
+    </p>
+  </div>
+</header>
+
+<div class="container">
+  <div class="proj-info-grid fade-up">
+    <div class="info-cell"><div class="info-cell-label">Code</div><div class="info-cell-value">DRC-03</div></div>
+    <div class="info-cell"><div class="info-cell-label">Year</div><div class="info-cell-value">2023</div></div>
+    <div class="info-cell"><div class="info-cell-label">Course</div><div class="info-cell-value">DESN1000 — Engineering Design</div></div>
+    <div class="info-cell"><div class="info-cell-label">Type</div><div class="info-cell-value">Team project</div></div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="proj-content fade-up">
+
+      <!-- ════════════════════════════════════════════════════
+           Edit this content with your actual project details
+           ════════════════════════════════════════════════════ -->
+
+      <div class="section-label">Overview</div>
+      <h2>The challenge</h2>
+      <p>
+        The project objective was to design and manufacture a fully autonomous
+        line-following vehicle capable of navigating a competition track while meeting
+        strict constraints on size, weight, speed, cost, and reliability. The system
+        needed to maintain accurate lane tracking at speed while remaining lightweight,
+        durable, and manufacturable within a limited student budget.
+      </p>
+
+      <div class="img-placeholder">
+        <span class="big">🚗</span>
+        <span>Add a photo of the Redback vehicle here</span>
+        <span style="font-size:0.75rem; color:var(--text3);">Replace with: &lt;img src="../assets/images/redback-car.jpg"&gt;</span>
+      </div>
+
+      <h2>Design constraints</h2>
+      <table class="constraints-table">
+        <thead>
+          <tr>
+            <th>Constraint</th>
+            <th>Requirement</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Maximum size</td>
+            <td>Within specified track width and length limits</td>
+            <td class="met">✓ Met</td>
+          </tr>
+          <tr>
+            <td>Maximum weight</td>
+            <td>Under the competition weight limit</td>
+            <td class="met">✓ Met</td>
+          </tr>
+          <tr>
+            <td>Speed</td>
+            <td>Complete track within time limit</td>
+            <td class="met">✓ Met</td>
+          </tr>
+          <tr>
+            <td>Budget</td>
+            <td>Within student budget allocation</td>
+            <td class="met">✓ Met</td>
+          </tr>
+          <tr>
+            <td>Autonomy</td>
+            <td>No manual intervention during run</td>
+            <td class="met">✓ Met</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Technical approach</h2>
+      <p>
+        The Redback vehicle used IR line sensors to detect the track boundary, feeding
+        signals into a microcontroller that adjusted differential motor speeds in real time
+        to maintain tracking. The chassis was designed around the sensor array geometry
+        to minimise sensor lag during cornering.
+      </p>
+
+      <ul>
+        <li>IR reflectance sensors for line detection across track width</li>
+        <li>Proportional control loop for steering correction</li>
+        <li>Lightweight 3D-printed chassis to meet weight budget</li>
+        <li>Dual DC motors with independent speed control</li>
+        <li>Compact onboard battery pack sized for full-run endurance</li>
+      </ul>
+
+      <div class="img-placeholder">
+        <span class="big">🔧</span>
+        <span>Chassis design, circuit diagram, or build photo</span>
+      </div>
+
+      <h2>Manufacturing</h2>
+      <p>
+        The chassis was manufactured using FDM 3D printing, chosen for rapid iteration
+        speed and the ability to customise mounting geometry for sensors and electronics.
+        Key dimensions were driven by sensor placement requirements and the motor
+        mounting footprint.
+      </p>
+
+      <h2>Outcome</h2>
+      <p>
+        The Redback vehicle successfully completed the competition track autonomously,
+        demonstrating reliable line tracking at competition speed. The project provided
+        hands-on experience in embedded control, mechanical packaging under hard
+        constraints, and manufacturing within a tight budget — all core engineering
+        competencies.
+      </p>
+
+      <!-- ════════════════════════════════════════════════════
+           END OF EDITABLE CONTENT
+           ════════════════════════════════════════════════════ -->
+
+      <div class="next-proj">
+        <div>
+          <div class="section-label">Previous project</div>
+          <a href="guardbuoy.html" style="font-family:var(--font-display); font-size:1.2rem; color:var(--white);">
+            ← GuardBuoy
+          </a>
+        </div>
+        <a href="../projects.html" class="btn btn-outline">All projects</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p style="margin-bottom:0.75rem; font-family: var(--font-display); font-size:1.1rem; color: var(--text);">Dheer Roy Choudhury</p>
+    <p style="margin-bottom:1rem;"><a href="https://github.com/dheerchoudhury" target="_blank" rel="noopener">GitHub</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/dheer-roy-choudhury/" target="_blank" rel="noopener">LinkedIn</a></p>
+    <p>© Dheer Roy Choudhury · Built with GitHub Pages</p>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+  document.getElementById('hamburger').addEventListener('click', function() { this.classList.toggle('open'); document.getElementById('nav-links').classList.toggle('open'); });
+</script>
+</body>
+</html>

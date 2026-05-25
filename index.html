@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dheer Roy Choudhury | Aerospace Engineering</title>
+  <meta name="description" content="Dheer Roy Choudhury — Aerospace Engineering student at UNSW. Portfolio of engineering projects, design work, and technical experience." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Hero ─────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 40%, rgba(46,204,113,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(46,204,113,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    /* Subtle grid overlay */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(46,204,113,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(46,204,113,0.04) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+    }
+    .hero-content { position: relative; max-width: 780px; }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+    .hero h1 { margin-bottom: 1.5rem; }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--text2);
+      max-width: 560px;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text3);
+    }
+    .scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      animation: scrollDrop 1.8s ease-in-out infinite;
+    }
+    @keyframes scrollDrop {
+      0% { opacity: 0; transform: scaleY(0); transform-origin: top; }
+      50% { opacity: 1; transform: scaleY(1); }
+      100% { opacity: 0; transform: scaleY(1); transform-origin: bottom; }
+    }
+
+    /* ── Stats strip ──────────────────────────────────────── */
+    .stats-strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    .stat-item {
+      text-align: center;
+      padding: 1rem 2rem;
+      position: relative;
+    }
+    .stat-item + .stat-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 20%; bottom: 20%;
+      width: 1px;
+      background: var(--border);
+    }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stat-label { font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text3); }
+
+    /* ── Focus areas ──────────────────────────────────────── */
+    .focus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; margin-top: 3rem; }
+    .focus-item {
+      background: var(--surface);
+      padding: 2.5rem 2rem;
+      border: 1px solid var(--border);
+      border-radius: 0;
+      transition: background var(--transition), border-color var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .focus-item:first-child { border-radius: var(--radius-lg) 0 0 var(--radius-lg); }
+    .focus-item:last-child  { border-radius: 0 var(--radius-lg) var(--radius-lg) 0; }
+    .focus-item::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .focus-item:hover { background: var(--surface2); border-color: var(--accent2); }
+    .focus-item:hover::after { transform: scaleX(1); }
+    .focus-num {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .focus-item h3 { margin-bottom: 0.6rem; font-size: 1.05rem; }
+
+    /* ── Featured projects preview ────────────────────────── */
+    .proj-preview {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .proj-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all var(--transition);
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .proj-card:hover {
+      border-color: var(--accent2);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 0 1px rgba(46,204,113,0.1);
+      color: inherit;
+    }
+    .proj-thumb {
+      height: 180px;
+      background: var(--surface2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .proj-thumb-label {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      color: rgba(46,204,113,0.15);
+      font-style: italic;
+      user-select: none;
+    }
+    .proj-thumb-tag {
+      position: absolute;
+      top: 1rem; right: 1rem;
+    }
+    .proj-body { padding: 1.5rem; }
+    .proj-code { font-size: 0.72rem; letter-spacing: 0.1em; color: var(--text3); text-transform: uppercase; margin-bottom: 0.4rem; }
+    .proj-body h3 { font-size: 1rem; margin-bottom: 0.6rem; color: var(--white); }
+    .proj-body p  { font-size: 0.875rem; color: var(--text2); line-height: 1.6; }
+    .proj-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-top: 1rem;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .stats-strip { grid-template-columns: 1fr; }
+      .stat-item + .stat-item::before { display: none; }
+      .focus-grid, .proj-preview { grid-template-columns: 1fr; }
+      .focus-item:first-child, .focus-item:last-child { border-radius: var(--radius-lg); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ───────────────────────────────────────────────── -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Dheer <span>RC</span></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://github.com/dheerchoudhury" target="_blank" rel="noopener">GitHub ↗</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── HERO ──────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow fade-up">
+        <span class="dot"></span>
+        Aerospace Engineering · UNSW Sydney
+      </div>
+      <h1 class="fade-up delay-1">
+        Dheer<br>Roy <em>Choudhury</em>
+      </h1>
+      <p class="hero-desc fade-up delay-2">
+        Aerospace engineering student building a foundation in flight systems,
+        structural analysis, and technical design — with hands-on project
+        experience ranging from autonomous vehicles to aircraft fuel systems.
+      </p>
+      <div class="hero-actions fade-up delay-3">
+        <a href="projects.html" class="btn btn-primary">View Projects</a>
+        <a href="about.html" class="btn btn-outline">About Me</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- ── STATS STRIP ────────────────────────────────────────── -->
+<div class="container">
+  <div class="stats-strip">
+    <div class="stat-item">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Projects documented</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">UNSW</div>
+      <div class="stat-label">Aerospace Engineering</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">SYD</div>
+      <div class="stat-label">Sydney, Australia</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOCUS AREAS ────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">What I work on</div>
+    <h2>Engineering focus areas</h2>
+    <div class="focus-grid">
+      <div class="focus-item">
+        <div class="focus-num">01</div>
+        <h3>Aerospace Systems</h3>
+        <p>Aircraft fuel systems, structural subsystem design, and flight mechanics analysis grounded in UNSW coursework and self-directed study.</p>
+      </div>
+      <div class="focus-item">
+        <div class="focus-num">02</div>
+        <h3>Autonomous Systems</h3>
+        <p>Hands-on design and manufacture of autonomous vehicles — integrating sensors, control logic, and mechanical hardware under real constraints.</p>
+      </div>
+      <div class="focus-item">
+        <div class="focus-num">03</div>
+        <h3>Materials & Analysis</h3>
+        <p>Competitive and materials analysis for engineering products, including marine-grade systems and structural reliability in harsh environments.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURED PROJECTS ──────────────────────────────────── -->
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="flex-between mb-3" style="flex-wrap:wrap; gap:1rem;">
+      <div>
+        <div class="section-label">Selected work</div>
+        <h2>Featured projects</h2>
+      </div>
+      <a href="projects.html" class="btn btn-outline">All projects →</a>
+    </div>
+    <div class="proj-preview">
+
+      <a href="projects/guardbuoy.html" class="proj-card">
+        <div class="proj-thumb">
+          <span class="proj-thumb-label">GB</span>
+          <span class="proj-thumb-tag tag">Materials</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-code">DRC-01 · 2024</div>
+          <h3>GuardBuoy — Autonomous Rescue Device</h3>
+          <p>Materials selection and competitor analysis for a solar-powered autonomous water-rescue buoy.</p>
+          <span class="proj-arrow">Open project →</span>
+        </div>
+      </a>
+
+      <a href="projects/fuel-system.html" class="proj-card">
+        <div class="proj-thumb">
+          <span class="proj-thumb-label">FS</span>
+          <span class="proj-thumb-tag tag">Aerospace</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-code">DRC-02 · 2024</div>
+          <h3>Conceptual Fuel System Design</h3>
+          <p>Reference-aircraft analysis using DC-9 & 737NG to design an original aircraft fuel system.</p>
+          <span class="proj-arrow">Open project →</span>
+        </div>
+      </a>
+
+      <a href="projects/redback-car.html" class="proj-card">
+        <div class="proj-thumb">
+          <span class="proj-thumb-label">RB</span>
+          <span class="proj-thumb-tag tag">Autonomous</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-code">DRC-03 · 2023</div>
+          <h3>Redback Autonomous Line-Following Vehicle</h3>
+          <p>Design and manufacture of an autonomous line-following vehicle for DESN1000 competition.</p>
+          <span class="proj-arrow">Open project →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <p style="margin-bottom:0.75rem; font-family: var(--font-display); font-size:1.1rem; color: var(--text);">Dheer Roy Choudhury</p>
+    <p style="margin-bottom:1rem;">
+      <a href="https://github.com/dheerchoudhury" target="_blank" rel="noopener">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.linkedin.com/in/dheer-roy-choudhury/" target="_blank" rel="noopener">LinkedIn</a>
+    </p>
+    <p>Aerospace Engineering · UNSW Sydney</p>
+    <p style="margin-top:1rem;">© Dheer Roy Choudhury · Built with GitHub Pages</p>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+</script>
+</body>
+</html>

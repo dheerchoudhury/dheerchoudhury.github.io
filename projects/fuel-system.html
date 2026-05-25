@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fuel System Design | Dheer Roy Choudhury</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .proj-hero { padding: 9rem 0 4rem; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+    .proj-hero::before { content: ''; position: absolute; top: -30%; right: -5%; width: 600px; height: 600px; background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%); pointer-events: none; }
+    .proj-meta-bar { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .proj-subtitle { font-size: 1.1rem; color: var(--text2); max-width: 620px; }
+    .proj-info-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin: 3rem 0; }
+    .info-cell { padding: 1.5rem; border-right: 1px solid var(--border); }
+    .info-cell:last-child { border-right: none; }
+    .info-cell-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text3); margin-bottom: 0.4rem; }
+    .info-cell-value { font-size: 0.95rem; color: var(--white); }
+    .proj-content { max-width: 780px; }
+    .proj-content h2 { margin: 3rem 0 1rem; font-size: 1.4rem; }
+    .proj-content p { margin-bottom: 1rem; }
+    .proj-content ul { list-style: none; margin: 0 0 1.5rem; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+    .proj-content ul li { padding: 0.6rem 1rem 0.6rem 1.5rem; color: var(--text2); font-size: 0.925rem; position: relative; }
+    .proj-content ul li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
+    .img-placeholder { width: 100%; aspect-ratio: 16/9; background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-lg); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; margin: 2rem 0; color: var(--text3); font-size: 0.85rem; }
+    .img-placeholder .big { font-size: 3rem; opacity: 0.3; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: var(--text3); margin-bottom: 2.5rem; transition: color var(--transition); }
+    .back-link:hover { color: var(--accent); }
+    .next-proj { border-top: 1px solid var(--border); margin-top: 5rem; padding-top: 3rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    /* Two-column comparison */
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0; }
+    .compare-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; }
+    .compare-card h4 { color: var(--accent); font-size: 0.9rem; margin-bottom: 0.75rem; font-family: var(--font-body); font-weight: 500; }
+    .compare-card ul { margin: 0; }
+    @media (max-width: 768px) {
+      .proj-info-grid { grid-template-columns: repeat(2, 1fr); }
+      .compare-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">Dheer <span>RC</span></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../projects.html" class="active">Projects</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="https://github.com/dheerchoudhury" target="_blank" rel="noopener">GitHub ↗</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<header class="proj-hero">
+  <div class="container">
+    <a href="../projects.html" class="back-link fade-up">← Back to projects</a>
+    <div class="proj-meta-bar fade-up delay-1">
+      <span class="tag">Aerospace</span>
+      <span class="tag">Design</span>
+    </div>
+    <h1 class="fade-up delay-1">Conceptual Fuel System Design</h1>
+    <p class="proj-subtitle fade-up delay-2">DC-9 &amp; 737NG Reference Aircraft Analysis — AERO3110</p>
+  </div>
+</header>
+
+<div class="container">
+  <div class="proj-info-grid fade-up">
+    <div class="info-cell"><div class="info-cell-label">Code</div><div class="info-cell-value">DRC-02</div></div>
+    <div class="info-cell"><div class="info-cell-label">Year</div><div class="info-cell-value">2024</div></div>
+    <div class="info-cell"><div class="info-cell-label">Course</div><div class="info-cell-value">AERO3110 — Aerospace Design 1</div></div>
+    <div class="info-cell"><div class="info-cell-label">Type</div><div class="info-cell-value">Individual coursework</div></div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="proj-content fade-up">
+
+      <!-- ════════════════════════════════════════════════════
+           Edit this content with your actual report details
+           ════════════════════════════════════════════════════ -->
+
+      <div class="section-label">Overview</div>
+      <h2>The problem</h2>
+      <p>
+        For AERO3110 (Aerospace Design 1), I was tasked with analysing the fuel systems
+        of two reference transport aircraft — the McDonnell Douglas DC-9 and Boeing 737NG
+        — to understand their design drivers, operational parameters, and system integration.
+        This analysis would inform the development of an original conceptual fuel system
+        meeting specific performance and redundancy requirements.
+      </p>
+
+      <div class="img-placeholder">
+        <span class="big">✈</span>
+        <span>Fuel system schematic or reference aircraft diagram</span>
+        <span style="font-size:0.75rem; color:var(--text3);">Replace with your actual diagram or screenshot from your report</span>
+      </div>
+
+      <h2>Reference aircraft analysis</h2>
+      <p>
+        The DC-9 and 737NG were selected as reference aircraft representing two generations
+        of short-to-medium range transport design. Their fuel systems reflect different
+        eras of engineering — from analogue pneumatic controls to modern digital fuel
+        management systems.
+      </p>
+
+      <div class="compare-grid">
+        <div class="compare-card">
+          <h4>McDonnell Douglas DC-9</h4>
+          <ul>
+            <li>Twin rear-mounted engines</li>
+            <li>Integral wing fuel tanks</li>
+            <li>Gravity and pressure refuelling</li>
+            <li>Manual fuel management</li>
+          </ul>
+        </div>
+        <div class="compare-card">
+          <h4>Boeing 737NG</h4>
+          <ul>
+            <li>Centre + wing tank configuration</li>
+            <li>Fuel feed redundancy via crossfeed</li>
+            <li>Automatic fuel balancing</li>
+            <li>Digital fuel quantity indication</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>Key design drivers identified</h2>
+      <ul>
+        <li>Fuel centre-of-gravity management during flight to maintain trim</li>
+        <li>Redundancy and failure isolation between engine feed lines</li>
+        <li>Vapour suppression and inerting requirements</li>
+        <li>Refuelling time and single-point pressure refuelling</li>
+        <li>Fuel quantity measurement accuracy and FQMS reliability</li>
+      </ul>
+
+      <div class="img-placeholder">
+        <span class="big">⚙️</span>
+        <span>Your conceptual fuel system schematic</span>
+      </div>
+
+      <h2>Original conceptual design</h2>
+      <p>
+        Drawing on the reference analysis, I developed an original fuel system concept
+        addressing the specific performance requirements of the coursework brief. The
+        design prioritised redundancy, CG control, and crew workload reduction through
+        automated fuel management.
+      </p>
+      <ul>
+        <li>Symmetrical wing tank configuration with centre tank for extended range</li>
+        <li>Crossfeed capability for engine-out scenarios</li>
+        <li>Automatic fuel sequencing to manage CG envelope</li>
+        <li>Single-point underwing pressure refuelling with gravity backup</li>
+      </ul>
+
+      <h2>Outcome</h2>
+      <p>
+        The project demonstrated how reference aircraft analysis translates into informed
+        conceptual design decisions. Understanding the rationale behind existing systems
+        — their redundancy architectures, CG management strategies, and certification
+        requirements — was critical to producing a credible original concept.
+      </p>
+
+      <!-- ════════════════════════════════════════════════════
+           END OF EDITABLE CONTENT
+           ════════════════════════════════════════════════════ -->
+
+      <div class="next-proj">
+        <div>
+          <div class="section-label">Next project</div>
+          <a href="redback-car.html" style="font-family:var(--font-display); font-size:1.2rem; color:var(--white);">
+            Redback Autonomous Vehicle →
+          </a>
+        </div>
+        <a href="../projects.html" class="btn btn-outline">All projects</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p style="margin-bottom:0.75rem; font-family: var(--font-display); font-size:1.1rem; color: var(--text);">Dheer Roy Choudhury</p>
+    <p style="margin-bottom:1rem;"><a href="https://github.com/dheerchoudhury" target="_blank" rel="noopener">GitHub</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/dheer-roy-choudhury/" target="_blank" rel="noopener">LinkedIn</a></p>
+    <p>© Dheer Roy Choudhury · Built with GitHub Pages</p>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+  document.getElementById('hamburger').addEventListener('click', function() { this.classList.toggle('open'); document.getElementById('nav-links').classList.toggle('open'); });
+</script>
+</body>
+</html>

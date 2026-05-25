@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Dheer Roy Choudhury</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── About layout ─────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.8fr;
+      gap: 5rem;
+      align-items: start;
+      margin-top: 4rem;
+    }
+    /* Profile card */
+    .profile-card {
+      position: sticky;
+      top: 7rem;
+    }
+    .profile-avatar {
+      width: 100%;
+      aspect-ratio: 1;
+      max-width: 260px;
+      border-radius: var(--radius-lg);
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 5rem;
+      color: rgba(46,204,113,0.2);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      position: relative;
+    }
+    /* Swap the initials for a real photo:
+       Replace the span below with <img src="../assets/photo.jpg" style="width:100%;height:100%;object-fit:cover;"> */
+    .profile-name {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+    .profile-role {
+      font-size: 0.875rem;
+      color: var(--text2);
+      margin-bottom: 1.5rem;
+    }
+    .profile-links { display: flex; flex-direction: column; gap: 0.6rem; }
+    .profile-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--text2);
+      padding: 0.6rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: all var(--transition);
+      text-decoration: none;
+    }
+    .profile-link:hover {
+      border-color: var(--accent2);
+      color: var(--accent);
+      background: var(--accent-dim);
+    }
+    .profile-link .icon { font-size: 1rem; width: 1.2rem; text-align: center; }
+
+    /* ── Bio sections ─────────────────────────────────────── */
+    .bio-section { margin-bottom: 3.5rem; }
+    .bio-section h2 { margin-bottom: 1.2rem; font-size: 1.4rem; }
+    .bio-section p { margin-bottom: 1rem; }
+    .bio-section p:last-child { margin-bottom: 0; }
+
+    /* ── Education / Experience timeline ──────────────────── */
+    .timeline { margin-top: 1.5rem; }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .timeline-item:last-child { border-bottom: none; }
+    .timeline-date {
+      font-size: 0.8rem;
+      color: var(--text3);
+      padding-top: 0.15rem;
+      letter-spacing: 0.04em;
+    }
+    .timeline-body h4 { color: var(--white); margin-bottom: 0.2rem; font-size: 1rem; }
+    .timeline-body .institution { color: var(--accent); font-size: 0.875rem; margin-bottom: 0.5rem; }
+    .timeline-body p { font-size: 0.875rem; }
+
+    /* ── Skills grid ──────────────────────────────────────── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .skill-group h4 {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      font-family: var(--font-body);
+      font-weight: 500;
+    }
+    .skill-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .skill-list li {
+      font-size: 0.875rem;
+      color: var(--text2);
+      padding: 0.35rem 0.75rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .profile-card { position: static; }
+      .timeline-item { grid-template-columns: 1fr; gap: 0.4rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ───────────────────────────────────────────────── -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Dheer <span>RC</span></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://github.com/dheerchoudhury" target="_blank" rel="noopener">GitHub ↗</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── PAGE HEADER ────────────────────────────────────────── -->
+<header class="page-header">
+  <div class="container">
+    <div class="section-label fade-up">About</div>
+    <h1 class="fade-up delay-1">About Me</h1>
+    <p class="fade-up delay-2" style="max-width:500px; font-size:1.05rem; margin-top:1rem;">
+      Aerospace engineering student, STEM mentor, and problem-solver
+      based in Sydney.
+    </p>
+  </div>
+</header>
+
+<!-- ── ABOUT CONTENT ─────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="about-grid">
+
+      <!-- ── LEFT: Profile card ──────────────────────────── -->
+      <div class="profile-card fade-up">
+        <div class="profile-avatar">
+          <span>DRC</span>
+          <!-- To add your photo, replace the span above with:
+               <img src="assets/your-photo.jpg" style="width:100%;height:100%;object-fit:cover;"> -->
+        </div>
+        <div class="profile-name">Dheer Roy Choudhury</div>
+        <div class="profile-role">Aerospace Engineering · UNSW Sydney</div>
+        <div class="profile-links">
+          <a href="https://github.com/dheerchoudhury" target="_blank" rel="noopener" class="profile-link">
+            <span class="icon">⌥</span> github.com/dheerchoudhury
+          </a>
+          <a href="https://www.linkedin.com/in/dheer-roy-choudhury/" target="_blank" rel="noopener" class="profile-link">
+            <span class="icon">in</span> LinkedIn
+          </a>
+          <a href="contact.html" class="profile-link">
+            <span class="icon">✉</span> Contact me
+          </a>
+        </div>
+      </div>
+
+      <!-- ── RIGHT: Bio ──────────────────────────────────── -->
+      <div>
+
+        <!-- About me text -->
+        <div class="bio-section fade-up">
+          <div class="section-label">Background</div>
+          <h2>Who I am</h2>
+          <p>
+            I'm an Aerospace Engineering student at UNSW Sydney with a strong
+            interest in aircraft systems, structural design, and autonomous
+            technology. I'm driven by the challenge of turning complex technical
+            problems into practical, well-reasoned solutions.
+          </p>
+          <p>
+            Alongside my studies, I've developed experience in customer service and
+            STEM mentoring — working with students to break down difficult concepts,
+            which has sharpened both my communication and technical thinking.
+          </p>
+          <p>
+            I'm currently seeking an internship opportunity where I can apply
+            my engineering knowledge in a real-world environment, contribute to
+            a team, and continue developing as an engineer.
+          </p>
+        </div>
+
+        <!-- Education -->
+        <div class="bio-section fade-up delay-1">
+          <div class="section-label">Education</div>
+          <h2>Academic background</h2>
+          <div class="timeline">
+
+            <!-- ══════════════════════════════════════════════
+                 EDUCATION — Edit or add entries here
+                 ══════════════════════════════════════════════ -->
+            <div class="timeline-item">
+              <div class="timeline-date">2023 – Present</div>
+              <div class="timeline-body">
+                <h4>Bachelor of Engineering (Aerospace) Honours</h4>
+                <div class="institution">University of New South Wales (UNSW)</div>
+                <p>Core focus on aerodynamics, structural mechanics, aircraft systems design,
+                   propulsion, and flight dynamics. Key courses include AERO3110 (Aerospace Design 1)
+                   and DESN1000 (Engineering Design).</p>
+              </div>
+            </div>
+
+            <!-- Add more education entries here by copying the block above -->
+
+          </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="bio-section fade-up delay-2">
+          <div class="section-label">Experience</div>
+          <h2>Work & volunteering</h2>
+          <div class="timeline">
+
+            <!-- ══════════════════════════════════════════════
+                 EXPERIENCE — Edit or add entries here
+                 ══════════════════════════════════════════════ -->
+            <div class="timeline-item">
+              <div class="timeline-date">Current</div>
+              <div class="timeline-body">
+                <h4>STEM Mentor</h4>
+                <div class="institution">STEM Mentoring</div>
+                <p>Supporting students in understanding engineering and science concepts,
+                   focusing on clear explanation, problem decomposition, and building
+                   confidence in technical subjects.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-date">Current</div>
+              <div class="timeline-body">
+                <h4>Customer Service</h4>
+                <div class="institution">——</div>
+                <p>Developed communication, problem-solving under pressure, and
+                   teamwork skills in a fast-paced service environment.</p>
+              </div>
+            </div>
+
+            <!-- Add more experience entries here by copying a block above -->
+
+          </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="bio-section fade-up delay-3">
+          <div class="section-label">Skills</div>
+          <h2>Technical skills</h2>
+          <div class="skills-grid">
+
+            <!-- ══════════════════════════════════════════════
+                 SKILLS — Edit or add skills here
+                 ══════════════════════════════════════════════ -->
+            <div class="skill-group">
+              <h4>Engineering</h4>
+              <ul class="skill-list">
+                <li>Aircraft systems design</li>
+                <li>Structural analysis</li>
+                <li>Materials selection</li>
+                <li>Aerodynamics fundamentals</li>
+                <li>Competitor analysis</li>
+              </ul>
+            </div>
+            <div class="skill-group">
+              <h4>Tools & Software</h4>
+              <ul class="skill-list">
+                <li>MATLAB</li>
+                <li>AutoCAD / SolidWorks</li>
+                <li>Microsoft Office</li>
+                <li>Technical report writing</li>
+                <!-- Add more tools here -->
+              </ul>
+            </div>
+            <div class="skill-group">
+              <h4>Soft skills</h4>
+              <ul class="skill-list">
+                <li>Team collaboration</li>
+                <li>STEM communication</li>
+                <li>Project documentation</li>
+                <li>Customer service</li>
+              </ul>
+            </div>
+            <div class="skill-group">
+              <h4>Interests</h4>
+              <ul class="skill-list">
+                <li>Autonomous systems</li>
+                <li>Sustainable aviation</li>
+                <li>Human-centred design</li>
+                <!-- Add more interests here -->
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- end right col -->
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <p style="margin-bottom:0.75rem; font-family: var(--font-display); font-size:1.1rem; color: var(--text);">Dheer Roy Choudhury</p>
+    <p style="margin-bottom:1rem;">
+      <a href="https://github.com/dheerchoudhury" target="_blank" rel="noopener">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.linkedin.com/in/dheer-roy-choudhury/" target="_blank" rel="noopener">LinkedIn</a>
+    </p>
+    <p>© Dheer Roy Choudhury · Built with GitHub Pages</p>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+</script>
+</body>
+</html>

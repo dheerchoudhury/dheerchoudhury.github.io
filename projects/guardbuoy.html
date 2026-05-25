@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GuardBuoy | Dheer Roy Choudhury</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .proj-hero {
+      padding: 9rem 0 4rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .proj-hero::before {
+      content: '';
+      position: absolute;
+      top: -30%; right: -5%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .proj-meta-bar {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .proj-title { margin-bottom: 1rem; }
+    .proj-subtitle { font-size: 1.1rem; color: var(--text2); max-width: 620px; }
+
+    /* Info table */
+    .proj-info-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin: 3rem 0;
+    }
+    .info-cell {
+      padding: 1.5rem;
+      border-right: 1px solid var(--border);
+    }
+    .info-cell:last-child { border-right: none; }
+    .info-cell-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text3);
+      margin-bottom: 0.4rem;
+    }
+    .info-cell-value { font-size: 0.95rem; color: var(--white); }
+
+    /* Content */
+    .proj-content { max-width: 780px; }
+    .proj-content h2 { margin: 3rem 0 1rem; font-size: 1.4rem; }
+    .proj-content p { margin-bottom: 1rem; }
+    .proj-content ul {
+      list-style: none;
+      margin: 0 0 1.5rem;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .proj-content ul li {
+      padding: 0.6rem 1rem 0.6rem 1.5rem;
+      color: var(--text2);
+      font-size: 0.925rem;
+      position: relative;
+    }
+    .proj-content ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* Image placeholder */
+    .img-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+      color: var(--text3);
+      font-size: 0.85rem;
+    }
+    .img-placeholder .big { font-size: 3rem; opacity: 0.3; }
+    /* Replace img-placeholder with a real <img> once you have images:
+       <img src="../assets/images/guardbuoy-main.jpg" alt="GuardBuoy render" style="width:100%; border-radius:12px; border:1px solid var(--border); margin:2rem 0;"> */
+
+    /* Nav back */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text3);
+      margin-bottom: 2.5rem;
+      transition: color var(--transition);
+    }
+    .back-link:hover { color: var(--accent); }
+
+    /* Next project */
+    .next-proj {
+      border-top: 1px solid var(--border);
+      margin-top: 5rem;
+      padding-top: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .proj-info-grid { grid-template-columns: repeat(2, 1fr); }
+      .info-cell:nth-child(2) { border-right: none; }
+      .info-cell:nth-child(3) { border-top: 1px solid var(--border); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ───────────────────────────────────────────────── -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">Dheer <span>RC</span></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../projects.html" class="active">Projects</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="https://github.com/dheerchoudhury" target="_blank" rel="noopener">GitHub ↗</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── PROJECT HERO ──────────────────────────────────────── -->
+<header class="proj-hero">
+  <div class="container">
+    <a href="../projects.html" class="back-link fade-up">← Back to projects</a>
+    <div class="proj-meta-bar fade-up delay-1">
+      <span class="tag">Materials</span>
+      <span class="tag">Design</span>
+    </div>
+    <h1 class="proj-title fade-up delay-1">GuardBuoy</h1>
+    <p class="proj-subtitle fade-up delay-2">
+      Materials &amp; Competitor Analysis for an Autonomous Water-Rescue Device
+    </p>
+  </div>
+</header>
+
+<!-- ── PROJECT META ──────────────────────────────────────── -->
+<div class="container">
+  <div class="proj-info-grid fade-up">
+    <div class="info-cell">
+      <div class="info-cell-label">Code</div>
+      <div class="info-cell-value">DRC-01</div>
+    </div>
+    <div class="info-cell">
+      <div class="info-cell-label">Year</div>
+      <div class="info-cell-value">2024</div>
+    </div>
+    <div class="info-cell">
+      <div class="info-cell-label">Domain</div>
+      <div class="info-cell-value">Marine systems, Materials, Product analysis</div>
+    </div>
+    <div class="info-cell">
+      <div class="info-cell-label">Type</div>
+      <div class="info-cell-value">Team project</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PROJECT CONTENT ───────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="proj-content fade-up">
+
+      <!-- ════════════════════════════════════════════════════
+           PROJECT CONTENT — Edit the sections below with your
+           actual report details, findings, and images.
+           ════════════════════════════════════════════════════ -->
+
+      <div class="section-label">Overview</div>
+      <h2>The problem</h2>
+      <p>
+        Our team needed to justify GuardBuoy — a solar-powered autonomous water-rescue
+        device using cameras, AI detection, and thrusters — as a superior investment
+        compared to existing market options. This required demonstrating both competitive
+        advantage and selecting materials that would ensure long-term structural reliability
+        in harsh marine environments.
+      </p>
+
+      <!-- Image slot — replace with your actual image -->
+      <div class="img-placeholder">
+        <span class="big">🌊</span>
+        <span>Add a project image here — concept render, diagram, or photo</span>
+        <span style="font-size:0.75rem; color:var(--text3);">Replace this block with &lt;img src="../assets/images/guardbuoy.jpg"&gt;</span>
+      </div>
+
+      <h2>Approach</h2>
+      <p>
+        The project was divided into two interconnected analyses: a competitive landscape
+        review of existing rescue devices, and a materials selection process focused on
+        durability in salt water and UV exposure over a multi-year service life.
+      </p>
+
+      <h2>Competitor analysis</h2>
+      <p>
+        We reviewed existing autonomous and semi-autonomous water rescue devices on the
+        market, evaluating them across key dimensions:
+      </p>
+      <ul>
+        <li>Response time from deployment to victim contact</li>
+        <li>Payload capacity and victim support</li>
+        <li>Autonomy level (remote-operated vs. fully autonomous)</li>
+        <li>Power source and operational range</li>
+        <li>Cost and accessibility for emergency services</li>
+      </ul>
+      <p>
+        GuardBuoy's AI-based detection system and solar charging differentiator a clear
+        competitive gap in fully-autonomous, low-operating-cost rescue solutions.
+      </p>
+
+      <!-- Second image slot -->
+      <div class="img-placeholder">
+        <span class="big">📊</span>
+        <span>Competitor comparison chart or table</span>
+      </div>
+
+      <h2>Materials selection</h2>
+      <p>
+        Structural reliability in marine environments demands careful materials selection.
+        The key requirements were corrosion resistance, UV stability, impact toughness,
+        and buoyancy contribution. The analysis compared:
+      </p>
+      <ul>
+        <li>Marine-grade aluminium alloys (6061-T6, 5052) for structural frame</li>
+        <li>High-density polyethylene (HDPE) for outer hull panels</li>
+        <li>Fibreglass-reinforced polymer (FRP) as a composite alternative</li>
+        <li>UV-stabilised ABS for camera and electronics housing</li>
+      </ul>
+      <p>
+        The final recommendation balanced cost, manufacturability, and service-life
+        performance — with marine-grade aluminium for the chassis and HDPE for the
+        hull, providing a strong corrosion and impact resistance profile.
+      </p>
+
+      <h2>Outcome</h2>
+      <p>
+        The analysis successfully demonstrated GuardBuoy's technical and commercial
+        viability against existing alternatives, and produced a materials specification
+        with clear justification for long-term marine deployment.
+      </p>
+
+      <!-- ════════════════════════════════════════════════════
+           END OF EDITABLE CONTENT
+           ════════════════════════════════════════════════════ -->
+
+      <!-- Next / prev project navigation -->
+      <div class="next-proj">
+        <div>
+          <div class="section-label">Next project</div>
+          <a href="fuel-system.html" style="font-family:var(--font-display); font-size:1.2rem; color:var(--white);">
+            Conceptual Fuel System Design →
+          </a>
+        </div>
+        <a href="../projects.html" class="btn btn-outline">All projects</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <p style="margin-bottom:0.75rem; font-family: var(--font-display); font-size:1.1rem; color: var(--text);">Dheer Roy Choudhury</p>
+    <p style="margin-bottom:1rem;">
+      <a href="https://github.com/dheerchoudhury" target="_blank" rel="noopener">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.linkedin.com/in/dheer-roy-choudhury/" target="_blank" rel="noopener">LinkedIn</a>
+    </p>
+    <p>© Dheer Roy Choudhury · Built with GitHub Pages</p>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+  document.getElementById('hamburger').addEventListener('click', function() {
+    this.classList.toggle('open');
+    document.getElementById('nav-links').classList.toggle('open');
+  });
+</script>
+</body>
+</html>

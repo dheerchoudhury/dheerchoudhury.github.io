@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Dheer Roy Choudhury</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      margin-top: 4rem;
+      align-items: start;
+    }
+    .contact-info h2 { margin-bottom: 1rem; }
+    .contact-info p { margin-bottom: 2rem; }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .contact-item:first-of-type { border-top: 1px solid var(--border); }
+    .contact-icon {
+      width: 36px; height: 36px;
+      border-radius: var(--radius);
+      background: var(--accent-dim);
+      border: 1px solid rgba(46,204,113,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .contact-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text3); margin-bottom: 0.2rem; }
+    .contact-value { color: var(--text); font-size: 0.95rem; }
+    .contact-value a { color: var(--text); }
+    .contact-value a:hover { color: var(--accent); }
+
+    /* Form */
+    .form-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+    }
+    .form-card h3 { margin-bottom: 0.5rem; }
+    .form-card > p { font-size: 0.875rem; margin-bottom: 2rem; }
+
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text3);
+      margin-bottom: 0.5rem;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      padding: 0.75rem 1rem;
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      -webkit-appearance: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--accent2);
+      box-shadow: 0 0 0 3px var(--accent-dim);
+    }
+    .form-group textarea { min-height: 140px; resize: vertical; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-note {
+      font-size: 0.78rem;
+      color: var(--text3);
+      margin-top: 1rem;
+      text-align: center;
+    }
+    /* The form uses mailto: — easiest for a static site.
+       For a real form backend, replace the action with Formspree or similar. */
+
+    @media (max-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ───────────────────────────────────────────────── -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Dheer <span>RC</span></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="https://github.com/dheerchoudhury" target="_blank" rel="noopener">GitHub ↗</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── PAGE HEADER ────────────────────────────────────────── -->
+<header class="page-header">
+  <div class="container">
+    <div class="section-label fade-up">Get in touch</div>
+    <h1 class="fade-up delay-1">Contact</h1>
+    <p class="fade-up delay-2" style="max-width:480px; font-size:1.05rem; margin-top:1rem;">
+      Open to internship opportunities, engineering collaborations,
+      or a general chat about aerospace.
+    </p>
+  </div>
+</header>
+
+<!-- ── CONTACT CONTENT ───────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- ── Left: info ──────────────────────────────────── -->
+      <div class="fade-up">
+        <div class="section-label">Links</div>
+        <h2>Find me online</h2>
+        <p>The best way to reach me is via LinkedIn or email. I'm also active on GitHub.</p>
+
+        <!-- ══════════════════════════════════════════════════
+             CONTACT DETAILS — Update your email below
+             ══════════════════════════════════════════════════ -->
+        <div class="contact-item">
+          <div class="contact-icon">✉</div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value">
+              <a href="mailto:YOUR_EMAIL@student.unsw.edu.au">
+                YOUR_EMAIL@student.unsw.edu.au
+              </a>
+              <!-- Replace the email above with your actual UNSW or personal email -->
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">in</div>
+          <div>
+            <div class="contact-label">LinkedIn</div>
+            <div class="contact-value">
+              <a href="https://www.linkedin.com/in/dheer-roy-choudhury/" target="_blank" rel="noopener">
+                linkedin.com/in/dheer-roy-choudhury
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">⌥</div>
+          <div>
+            <div class="contact-label">GitHub</div>
+            <div class="contact-value">
+              <a href="https://github.com/dheerchoudhury" target="_blank" rel="noopener">
+                github.com/dheerchoudhury
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Location</div>
+            <div class="contact-value">Sydney, NSW, Australia</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── Right: form ─────────────────────────────────── -->
+      <div class="form-card fade-up delay-2">
+        <h3>Send a message</h3>
+        <p>Fill in the form and it'll open your email client pre-filled — simple and reliable.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First name</label>
+            <input type="text" id="fname" placeholder="Jane" />
+          </div>
+          <div class="form-group">
+            <label for="lname">Last name</label>
+            <input type="text" id="lname" placeholder="Smith" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="femail">Your email</label>
+          <input type="email" id="femail" placeholder="jane@company.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="fsubject">Subject</label>
+          <input type="text" id="fsubject" placeholder="Internship enquiry / Collaboration / Other" />
+        </div>
+
+        <div class="form-group">
+          <label for="fmessage">Message</label>
+          <textarea id="fmessage" placeholder="Hi Dheer, I'd love to..."></textarea>
+        </div>
+
+        <button class="btn btn-primary" style="width:100%; justify-content:center;" onclick="sendMail()">
+          Send message →
+        </button>
+
+        <p class="form-note">
+          This opens your email client pre-filled. No data is sent to any server.
+          <!-- Optional: replace with Formspree for a true web form — free at formspree.io -->
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <p style="margin-bottom:0.75rem; font-family: var(--font-display); font-size:1.1rem; color: var(--text);">Dheer Roy Choudhury</p>
+    <p style="margin-bottom:1rem;">
+      <a href="https://github.com/dheerchoudhury" target="_blank" rel="noopener">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.linkedin.com/in/dheer-roy-choudhury/" target="_blank" rel="noopener">LinkedIn</a>
+    </p>
+    <p>© Dheer Roy Choudhury · Built with GitHub Pages</p>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+
+  function sendMail() {
+    const name    = (document.getElementById('fname').value + ' ' + document.getElementById('lname').value).trim();
+    const email   = document.getElementById('femail').value;
+    const subject = document.getElementById('fsubject').value || 'Portfolio enquiry';
+    const body    = document.getElementById('fmessage').value;
+    if (!email || !body) { alert('Please fill in your email and message.'); return; }
+    // ⚠️ Replace with your actual email below:
+    const to = 'YOUR_EMAIL@student.unsw.edu.au';
+    const mailtoLink = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${name} (${email})\n\n${body}`)}`;
+    window.location.href = mailtoLink;
+  }
+</script>
+</body>
+</html>
