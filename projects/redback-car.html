@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redback Autonomous Vehicle | Dheer Roy Choudhury</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+/* PROJECT SNAPSHOT */
+
+.project-snapshot {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  margin-top: 3rem;
+  background: rgba(255,255,255,0.02);
+  overflow: hidden; /* important for clean rounded corners */
+}
+
+.snapshot-header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.snapshot-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* 3x3 GRID */
+.snapshot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* EACH CELL */
+.snapshot-item {
+  padding: 1.5rem;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* remove right border on last col */
+.snapshot-item:nth-child(3n) {
+  border-right: none;
+}
+
+/* remove bottom border on last row (9 items total) */
+.snapshot-item:nth-last-child(-n+3) {
+  border-bottom: none;
+}
+
+.snapshot-item span {
+  display:block;
+  font-size:0.75rem;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  color:var(--text3);
+  margin-bottom:0.35rem;
+}
+
+.snapshot-item strong {
+  color:var(--white);
+  font-size:0.95rem;
+  line-height:1.4;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+
+  .snapshot-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .snapshot-item {
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .snapshot-item:nth-child(2n) {
+    border-right: none;
+  }
+
+  /* last row */
+  .snapshot-item:nth-child(5),
+  .snapshot-item:nth-child(6) {
+    border-bottom: none;
+  }
+
+}
+
+.process-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.process-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: rgba(255,255,255,0.02);
+}
+
+.process-card img {
+  width: 100%;
+  display: block;
+}
+
+.process-card h3 {
+  font-size: 1.15rem;
+  padding: 1.25rem 1.5rem 0.5rem;
+  margin: 0;
+}
+
+.process-card p {
+  padding: 0 1.5rem 1.5rem;
+  margin: 0;
+  color: var(--text2);
+}
+
+@media (max-width: 768px) {
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.decision-table {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: 1.5rem;
+}
+
+.decision-row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  border-bottom: 1px solid var(--border);
+}
+
+.decision-row:last-child {
+  border-bottom: none;
+}
+
+.decision-label {
+  padding: 1rem 1.25rem;
+  background: rgba(255,255,255,0.02);
+  border-right: 1px solid var(--border);
+  font-weight: 600;
+}
+
+.decision-text {
+  padding: 1rem 1.25rem;
+  color: var(--text2);
+}
+/* FIGURES */
+
+.project-figure {
+  margin: 2.5rem 0;
+}
+
+.project-figure img {
+  width:100%;
+  border-radius:var(--radius-lg);
+  border:1px solid var(--border);
+}
+
+.project-figure figcaption {
+  text-align:center;
+  margin-top:0.75rem;
+  color:var(--text3);
+  font-size:0.85rem;
+}
+.process-card video {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #000;
+}
+
+@media (max-width:768px){
+
+  .snapshot-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+}    
+    .proj-hero {
+      padding: 9rem 0 4rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .proj-hero::before {
+      content: '';
+      position: absolute;
+      top: -30%; right: -5%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .proj-meta-bar {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .proj-title { margin-bottom: 1rem; }
+    .proj-subtitle { font-size: 1.1rem; color: var(--text2); max-width: 620px; }
+
+    /* Info table */
+    .proj-info-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin: 3rem 0;
+    }
+    .info-cell {
+      padding: 1.5rem;
+      border-right: 1px solid var(--border);
+    }
+    .info-cell:last-child { border-right: none; }
+    .info-cell-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text3);
+      margin-bottom: 0.4rem;
+    }
+    .info-cell-value { font-size: 0.95rem; color: var(--white); }
+
+    /* Content */
+    .proj-content { max-width: 780px; }
+    .proj-content h2 {
+    margin: 3rem 0 1rem;
+    font-size: 1.6rem;
+    letter-spacing: -0.01em;
+    /* font-weight: 600; */
+    }
+    .proj-content p { margin-bottom: 1rem; }
+    .proj-content ul {
+      list-style: none;
+      margin: 0 0 1.5rem;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .proj-content ul li {
+      padding: 0.6rem 1rem 0.6rem 1.5rem;
+      color: var(--text2);
+      font-size: 0.925rem;
+      position: relative;
+    }
+    .proj-content ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* Image placeholder */
+    .img-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+      color: var(--text3);
+      font-size: 0.85rem;
+    }
+    .img-placeholder .big { font-size: 3rem; opacity: 0.3; }
+    /* Replace img-placeholder with a real <img> once you have images:
+       <img src="../assets/images/guardbuoy-main.jpg" alt="GuardBuoy render" style="width:100%; border-radius:12px; border:1px solid var(--border); margin:2rem 0;"> */
+
+    /* Nav back */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text3);
+      margin-bottom: 2.5rem;
+      transition: color var(--transition);
+    }
+    .back-link:hover { color: var(--accent); }
+
+    /* Next project */
+    .next-proj {
+      border-top: 1px solid var(--border);
+      margin-top: 5rem;
+      padding-top: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .proj-info-grid { grid-template-columns: repeat(2, 1fr); }
+      .info-cell:nth-child(2) { border-right: none; }
+      .info-cell:nth-child(3) { border-top: 1px solid var(--border); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ───────────────────────────────────────────────── -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">Dheer <span>RC</span></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../projects.html" class="active">Projects</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="https://www.linkedin.com/in/dheer-roy-choudhury/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+      <li><a href="https://github.com/dheerchoudhury" target="_blank" rel="noopener">GitHub ↗</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── PROJECT HERO ──────────────────────────────────────── -->
+<header class="proj-hero">
+  <div class="container">
+    <a href="../projects.html" class="back-link fade-up">← Back to projects</a>
+    <div class="proj-meta-bar fade-up delay-1">
+      <span class="tag">Autonomous</span>
+      <span class="tag">Design</span>
+    </div>
+    <h1 class="proj-title fade-up delay-1">Redback Autonomous Vehicle</h1>
+    <p class="proj-subtitle fade-up delay-2">
+      Design  &amp; Manufacture of a Competition Autonomous Line-Following Vehicle<br>
+      DESN1000: Introduction to Engineering Design and Innovation
+    </p>
+  </div>
+</header>
+
+<!-- ── PROJECT META ──────────────────────────────────────── -->
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- PROJECT SNAPSHOT -->
+<!-- ─────────────────────────────────────────────────────── -->
+
+<div class="container">
+
+  <div class="project-snapshot fade-up">
+
+    <div class="snapshot-header">
+      <h2>Project Snapshot</h2>
+    </div>
+
+    <div class="snapshot-grid">
+
+      <div class="snapshot-item">
+        <span>Year</span>
+        <strong>2023</strong>
+      </div>
+
+      <div class="snapshot-item">
+        <span>Duration</span>
+        <strong>10 Weeks</strong>
+      </div>
+
+      <div class="snapshot-item">
+        <span>Type</span>
+        <strong>Group Project (6 Members)</strong>
+      </div>
+
+      <div class="snapshot-item">
+        <span>Role</span>
+        <strong>Electrical & Systems Design</strong>
+      </div>
+
+      <div class="snapshot-item">
+        <span>Tools</span>
+        <strong>Arduino, Sensor Integration, Prototyping</strong>
+      </div>
+
+      <div class="snapshot-item">
+        <span>Outcome</span>
+        <strong>4th Place Overall<br>
+          82% Final Grade</strong>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- HERO IMAGE -->
+<!-- ─────────────────────────────────────────────────────── -->
+
+<section class="section" style="padding-top:2rem;">
+  <div class="container">
+
+    <figure class="project-figure fade-up">
+      <img
+        src="../assets/images/redback-autonomous-vehicle/main.jpg"
+        alt="Final Vehicle Image">
+      <figcaption>
+        Figure 1. Final Redback Autonomous Vehicle.
+      </figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- PROJECT CONTENT -->
+<!-- ─────────────────────────────────────────────────────── -->
+
+<section class="section">
+  <div class="container">
+
+    <div class="proj-content fade-up">
+
+      <div class="section-label">Project Overview</div>
+
+      <p>
+       Designed and manufactured an autonomous line-following vehicle 
+       for a competitive navigation challenge. The vehicle utilised 
+       an eight-sensor infrared tracking system and differential motor 
+       control to autonomously follow a marked course while meeting strict 
+       weight, size, and budget constraints.
+      </p>
+
+      <p>
+       The project introduced fundamental engineering design principles and 
+       provided practical experience integrating mechanical, electrical, 
+       and software systems into a functioning autonomous platform.
+      </p>
+
+      <!-- ================================================= -->
+
+      <h2>The Problem</h2>
+
+      <p>
+        The objective was to develop a reliable autonomous vehicle 
+        capable of accurately tracking a marked course under 
+        competition conditions. The design required the integration 
+        of sensing, control, power, and structural systems while 
+        satisfying strict dimensional, mass, and cost constraints.
+      </p>
+
+      <p>
+        Success depended on integrating sensors, control systems, 
+        mechanical components, and power systems into a reliable 
+        and manufacturable design.
+      </p>
+
+      <!-- ================================================= -->
+
+      <h2>My Role</h2>
+
+      <ul>
+        <li>Contributed to concept evaluation, requirements definition, prototype testing, and design justification.</li>
+        <li>Analysed sensor placement and vehicle configuration to improve navigation accuracy.</li>
+        <li>Optimised wiring, component packaging, and weight distribution for system performance.</li>
+        <li>Reduced calibration issues and improved tracking consistency through design analysis.</li>
+        <li>Assisted with technical presentations and engineering documentation.</li>
+      </ul>
+
+      <!-- ================================================= -->
+<h2>Approach & Process</h2>
+
+<div class="process-grid">
+
+
+  <div class="process-card">
+    <img src="../assets/images/redback-autonomous-vehicle/concept-generation-sketch.jpeg"
+         alt="Concept Sketches">
+
+    <h3>Concept Generation</h3>
+
+    <p>
+      Early-stage concept generation used to explore alternative vehicle configurations 
+      and design approaches.
+    </p>
+  </div>
+
+  <div class="process-card">
+    <img src="../assets/images/redback-autonomous-vehicle/example-vehicle.jpeg"
+         alt="Example Vehicle Concept">
+
+    <h3>Past Example</h3>
+
+    <p>
+      Review of previous similar competition vehicle to identify successful design 
+      features and common limitations.
+    </p>
+  </div>
+
+  <div class="process-card">
+    <img src="../assets/images/redback-autonomous-vehicle/dimensions.jpeg"
+         alt="Dimensions of Vehicle">
+
+    <h3>Dimensionsal Layout</h3>
+
+    <p>
+      Preliminary layout defining vehicle dimensions and packaging constraints.
+    </p>
+  </div>
+
+  <div class="process-card">
+    <img src="../assets/images/redback-autonomous-vehicle/acrylic.jpeg"
+         alt="Acrylic for Vehicle">
+
+    <h3>Acrylic Material</h3>
+
+    <p>
+      Acrylic was selected for the chassis due to its low mass, 
+      manufacturability, dimensional accuracy, and cost effectiveness.
+    </p>
+  </div>
+
+  <div class="process-card">
+    <img src="../assets/images/redback-autonomous-vehicle/allocation.jpeg"
+         alt="Allocation for Vehicle Components">
+
+    <h3>Vehicle Components Allocation</h3>
+
+    <p>
+      Component packaging study used to optimise weight distribution, 
+      accessibility, and compliance with competition constraints.  
+    </p>
+  </div>
+
+  <div class="process-card">
+    <img src="../assets/images/redback-autonomous-vehicle/weight.jpeg"
+         alt="Total Weight">
+
+    <h3>Final Weight</h3>
+
+    <p>
+      Mass budget analysis conducted to ensure compliance with the 
+      500 g competition weight limit.
+    </p>
+  </div>
+
+  <div class="process-card">
+    <img src="../assets/images/redback-autonomous-vehicle/in-action.jpg"
+         alt="Vehicle In Action ">
+
+    <h3>Final Vehicle</h3>
+
+    <p>
+      Final prototype undergoing track testing and performance validation.
+    </p>
+  </div>
+
+<div class="process-card">
+
+  <video controls preload="metadata">
+    <source src="../assets/videos/redback-autonomous-vehicle/testing-vid.mp4" type="video/mp4">
+  </video>
+
+  <h3>Circuit Testing</h3>
+
+  <p>
+    Iterative testing conducted to evaluate tracking accuracy, 
+    reliability, and opportunities for performance improvement.
+  </p>
+</div>
+
+  <div class="process-card">
+    <img src="../assets/images/redback-autonomous-vehicle/timing.jpeg"
+         alt="Lap Timings">
+
+    <h3>Lap Timings</h3>
+
+    <p>
+      Lap-time data used to quantify performance and evaluate 
+      design modifications, noting a 48 s average lap time.
+    </p>
+  </div>
+
+</div>
+<h2>Key Engineering Decisions & Trade-offs</h2>
+
+<div class="decision-table">
+
+  <div class="decision-row">
+    <div class="decision-label">Sensor Placement</div>
+    <div class="decision-text">
+      Sensor locations were iteratively refined to maximise 
+      line-detection reliability while minimising system 
+      complexity and calibration requirements.
+    </div>
+  </div>
+
+  <div class="decision-row">
+    <div class="decision-label">Speed vs Reliability</div>
+    <div class="decision-text">
+      Motor performance was balanced against tracking stability, 
+      recognising that higher speeds increased the 
+      likelihood of navigation errors.
+    </div>
+  </div>
+
+  <div class="decision-row">
+    <div class="decision-label">Weight Distribution</div>
+    <div class="decision-text">
+      Component placement was adjusted to achieve a balanced 
+      centre of mass and improve vehicle stability during manoeuvres.
+    </div>
+  </div>
+
+  <div class="decision-row">
+    <div class="decision-label">Long Term Testing</div>
+    <div class="decision-text">
+      Repeated testing was prioritised to improve robustness, 
+      consistency, and repeatability under competition conditions.
+    </div>
+  </div>
+
+</div>
+
+      <!-- ================================================= -->
+
+      <h2>Results & Outcome</h2>
+
+      <p>
+        Successfully delivered a fully functional autonomous 
+        vehicle incorporating 8 infrared line-tracking sensors, 
+        differential motor control, and an Arduino-based 
+        control system.
+      </p>
+
+      <p>
+        The final vehicle achieved reliable navigation performance 
+        and placed 4th overall in the competition while satisfying 
+        all design constraints relating to size, mass, and budget. 
+        In addition, an overall assessment outcome of 82% was achieved.
+      </p>
+
+      <!-- ================================================= -->
+
+      <h2>What I Learned</h2>
+
+      <p>
+        This project provided my first exposure to systems integration 
+        and demonstrated how mechanical, electrical, and software components 
+        must work together to achieve overall system performance.
+      </p>
+
+      <p>
+        I gained practical experience in prototype iteration, testing, 
+        troubleshooting, and engineering communication while developing 
+        a deeper appreciation for the importance of validation and 
+        refinement throughout the design process.
+      </p>
+
+      <!-- ================================================= -->
+
+      <div class="next-proj">
+
+        <div>
+          <div class="section-label">Next Project</div>
+
+          <a href="fuel-system.html"
+             style="font-family:var(--font-display);
+                    font-size:1.2rem;
+                    color:var(--white);">
+
+            Conceptual Fuel System Design →
+
+          </a>
+        </div>
+
+        <a href="../projects.html" class="btn btn-outline">
+          All Projects
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <p style="margin-bottom:0.75rem; font-family: var(--font-display); font-size:1.1rem; color: var(--text);">Dheer Roy Choudhury</p>
+    <p style="margin-bottom:1rem;">
+      <a href="https://github.com/dheerchoudhury" target="_blank" rel="noopener">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.linkedin.com/in/dheer-roy-choudhury/" target="_blank" rel="noopener">LinkedIn</a>
+    </p>
+    <p>© Dheer Roy Choudhury · Built with GitHub Pages</p>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+  document.getElementById('hamburger').addEventListener('click', function() {
+    this.classList.toggle('open');
+    document.getElementById('nav-links').classList.toggle('open');
+  });
+</script>
+</body>
+</html>

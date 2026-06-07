@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Dheer Roy Choudhury</title>
+  <meta name="description" content="Engineering projects by Dheer Roy Choudhury — aerospace systems, autonomous vehicles, materials analysis." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Filter bar ───────────────────────────────────────── */
+    .filter-bar {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 2.5rem;
+    }
+    .filter-btn {
+      padding: 0.5rem 1.25rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text2);
+      font-family: var(--font-body);
+      font-size: 0.825rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--accent-dim);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ── Project table ────────────────────────────────────── */
+    .proj-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+    .proj-table th {
+      text-align: left;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text3);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .proj-table td {
+      padding: 1.1rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      font-size: 0.9rem;
+      color: var(--text2);
+    }
+    .proj-table tr { transition: background var(--transition); }
+    .proj-table tbody tr:hover { background: var(--surface); }
+    .proj-table td:first-child { color: var(--text3); font-size: 0.8rem; white-space: nowrap; }
+    .proj-table td.proj-name a {
+      color: var(--white);
+      font-weight: 400;
+      font-size: 0.95rem;
+    }
+    .proj-table td.proj-name a:hover { color: var(--accent); }
+
+    /* ── Project cards grid ───────────────────────────────── */
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .proj-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: all var(--transition);
+    }
+    .proj-card:hover {
+      border-color: var(--accent2);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.35);
+      color: inherit;
+    }
+    .proj-thumb {
+      height: 160px;
+      background: var(--surface2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .proj-thumb-bg {
+      font-family: var(--font-display);
+      font-size: 5rem;
+      color: rgba(46,204,113,0.08);
+      font-style: italic;
+      user-select: none;
+    }
+    .proj-thumb-tag { position: absolute; top: 1rem; right: 1rem; }
+    .proj-body { padding: 1.5rem; }
+    .proj-code { font-size: 0.7rem; letter-spacing: 0.12em; color: var(--text3); text-transform: uppercase; margin-bottom: 0.4rem; }
+    .proj-body h3 { font-size: 1rem; margin-bottom: 0.5rem; color: var(--white); }
+    .proj-body p  { font-size: 0.85rem; color: var(--text2); line-height: 1.6; }
+    .proj-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-top: 1rem;
+      font-weight: 500;
+    }
+
+    /* hidden by filter */
+    .proj-card.hidden { display: none; }
+
+    /* ── "Add a project" hint box ─────────────────────────── */
+    .add-hint {
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      text-align: center;
+      color: var(--text3);
+      font-size: 0.85rem;
+    }
+    .add-hint strong { display: block; color: var(--text2); margin-bottom: 0.4rem; }
+
+    @media (max-width: 768px) {
+      .proj-table { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ───────────────────────────────────────────────── -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Dheer <span>RC</span></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="https://www.linkedin.com/in/dheer-roy-choudhury/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+      <li><a href="https://github.com/dheerchoudhury" target="_blank" rel="noopener">GitHub ↗</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── PAGE HEADER ────────────────────────────────────────── -->
+<header class="page-header">
+  <div class="container">
+    <div class="section-label fade-up">Work</div>
+    <h1 class="fade-up delay-1">Projects</h1>
+    <p class="fade-up delay-2" style="max-width:540px; font-size:1.05rem; margin-top:1rem;">
+      Engineering projects spanning aerospace systems, autonomous vehicles,
+      and materials analysis — built during study at UNSW.
+    </p>
+
+    <!-- ── FILTERS ────────────────────────────────────────── -->
+    <div class="filter-bar fade-up delay-3">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="aerospace">Aerospace</button>
+      <button class="filter-btn" data-filter="autonomous">Autonomous</button>
+      <button class="filter-btn" data-filter="materials">Materials</button>
+      <button class="filter-btn" data-filter="design">Design</button>
+    </div>
+  </div>
+</header>
+
+<!-- ── PROJECT GRID ──────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+
+    <!-- Stats row -->
+    <div class="flex gap-3 mb-3" style="flex-wrap:wrap;">
+      <div>
+        <span style="font-size:2rem; font-family:var(--font-display); color:var(--accent);" id="proj-count">3</span>
+        <span style="font-size:0.8rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--text3); margin-left:0.5rem;">projects</span>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="proj-grid" id="proj-grid">
+
+      <!-- ════════════════════════════════════════════════════
+           PROJECT CARDS — To add a new project:
+           1. Copy one <a class="proj-card"> block below
+           2. Update the data-category, href, code, title, description, tag
+           3. Save and upload to GitHub
+           ════════════════════════════════════════════════════ -->
+
+      <a href="projects/guardbuoy.html" class="proj-card" data-category="materials design">
+        <div class="proj-thumb">
+          <span class="proj-thumb-bg">GB</span>
+          <span class="proj-thumb-tag tag">Materials</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-code">DRC-01 · 2024</div>
+          <h3>GuardBuoy — Autonomous Rescue Device</h3>
+          <p>Materials & competitor analysis for a solar-powered autonomous water-rescue buoy using AI detection and thrusters.</p>
+          <span class="proj-arrow">Open project →</span>
+        </div>
+      </a>
+
+      <a href="projects/fuel-system.html" class="proj-card" data-category="aerospace design">
+        <div class="proj-thumb">
+          <span class="proj-thumb-bg">FS</span>
+          <span class="proj-thumb-tag tag">Aerospace</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-code">DRC-02 · 2024</div>
+          <h3>Conceptual Fuel System Design</h3>
+          <p>Reference-aircraft analysis using DC-9 & 737NG to inform an original conceptual fuel system for AERO3110.</p>
+          <span class="proj-arrow">Open project →</span>
+        </div>
+      </a>
+
+      <a href="projects/redback-car.html" class="proj-card" data-category="autonomous design">
+        <div class="proj-thumb">
+          <span class="proj-thumb-bg">RB</span>
+          <span class="proj-thumb-tag tag">Autonomous</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-code">DRC-03 · 2023</div>
+          <h3>Redback Autonomous Line-Following Vehicle</h3>
+          <p>Design and manufacture of a competition autonomous vehicle for DESN1000, meeting strict constraints on size, weight, and speed.</p>
+          <span class="proj-arrow">Open project →</span>
+        </div>
+      </a>
+
+      <a href="projects/dbf.html" class="proj-card" data-category="aerospace design">
+        <div class="proj-thumb">
+          <span class="proj-thumb-bg">DBF</span>
+          <span class="proj-thumb-tag tag">Aerospace</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-code">DRC-03 · 2023</div>
+          <h3>Design Build Fly Competition 2025/26 (AIAA)</h3>
+          <p>Design, Manufacture and Flying of a Competition Remote Controlled Aircraft.</p>
+          <span class="proj-arrow">Open project →</span>
+        </div>
+      </a>
+
+      <!-- ════════════════════════════════════════════════════
+           ADD YOUR NEXT PROJECT HERE — copy the block above!
+           Change data-category to one of: aerospace, autonomous, materials, design
+           ════════════════════════════════════════════════════ -->
+
+    </div>
+
+    <!-- Table view (desktop) -->
+    <div style="margin-top:4rem;">
+      <div class="section-label">Index</div>
+      <table class="proj-table">
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th>Year</th>
+            <th>Project</th>
+            <th>Domain</th>
+            <th>Open</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-category="materials design">
+            <td>DRC-01</td>
+            <td>2024</td>
+            <td class="proj-name"><a href="projects/guardbuoy.html">GuardBuoy — Autonomous Rescue Device</a></td>
+            <td>Materials, product analysis, marine systems</td>
+            <td><a href="projects/guardbuoy.html" style="color:var(--accent);">Open →</a></td>
+          </tr>
+          <tr data-category="aerospace design">
+            <td>DRC-02</td>
+            <td>2024</td>
+            <td class="proj-name"><a href="projects/fuel-system.html">Conceptual Fuel System Design</a></td>
+            <td>Aerospace, aircraft systems, AERO3110</td>
+            <td><a href="projects/fuel-system.html" style="color:var(--accent);">Open →</a></td>
+          </tr>
+          <tr data-category="autonomous design">
+            <td>DRC-03</td>
+            <td>2023</td>
+            <td class="proj-name"><a href="projects/redback-car.html">Redback Autonomous Vehicle</a></td>
+            <td>Autonomous systems, DESN1000, manufacturing</td>
+            <td><a href="projects/redback-car.html" style="color:var(--accent);">Open →</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <p style="margin-bottom:0.75rem; font-family: var(--font-display); font-size:1.1rem; color: var(--text);">Dheer Roy Choudhury</p>
+    <p style="margin-bottom:1rem;">
+      <a href="https://github.com/dheerchoudhury" target="_blank" rel="noopener">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.linkedin.com/in/dheer-roy-choudhury/" target="_blank" rel="noopener">LinkedIn</a>
+    </p>
+    <p>© Dheer Roy Choudhury · Built with GitHub Pages</p>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+
+  // Filter logic
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      const cards = document.querySelectorAll('#proj-grid .proj-card');
+      let visible = 0;
+      cards.forEach(card => {
+        const cats = card.dataset.category || '';
+        const show = filter === 'all' || cats.includes(filter);
+        card.classList.toggle('hidden', !show);
+        if (show) visible++;
+      });
+      document.getElementById('proj-count').textContent = visible;
+    });
+  });
+</script>
+</body>
+</html>
