@@ -99,6 +99,26 @@
       position: relative;
       overflow: hidden;
     }
+
+    .proj-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* .proj-thumb::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+       rgba(0,0,0,0.45),
+       rgba(0,0,0,0.05)
+      );
+      pointer-events: none;
+     } */
+
     .proj-thumb-bg {
       font-family: var(--font-display);
       font-size: 5rem;
@@ -188,7 +208,7 @@
     <!-- Stats row -->
     <div class="flex gap-3 mb-3" style="flex-wrap:wrap;">
       <div>
-        <span style="font-size:2rem; font-family:var(--font-display); color:var(--accent);" id="proj-count">3</span>
+        <span style="font-size:2rem; font-family:var(--font-display); color:var(--accent);" id="proj-count">5</span>
         <span style="font-size:0.8rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--text3); margin-left:0.5rem;">projects</span>
       </div>
     </div>
@@ -205,11 +225,12 @@
 
       <a href="projects/dbf.html" class="proj-card" data-category="aerospace design">
         <div class="proj-thumb">
-          <span class="proj-thumb-bg">DBF</span>
-          <span class="proj-thumb-tag tag">Aerospace</span>
+          <img src="assets/images/dbf/hero.JPG"
+               alt="DBF Aircraft">
+          <!-- <span class="proj-thumb-tag tag">Aerospace</span> -->
         </div>
         <div class="proj-body">
-          <div class="proj-code">DRC-03 · 2023</div>
+          <div class="proj-code">2025/2026</div>
           <h3>Design Build Fly Competition 2025/26 (AIAA)</h3>
           <p>Design, Manufacture and Flying of a Competition Remote Controlled Aircraft.</p>
           <span class="proj-arrow">Open project →</span>
@@ -218,11 +239,11 @@
 
       <a href="projects/ozganga.html" class="proj-card" data-category="materials">
         <div class="proj-thumb">
-          <span class="proj-thumb-bg">OG</span>
-          <span class="proj-thumb-tag tag">Materials</span>
+          <img src="assets/images/ozganga/hero.jpeg"
+               alt="Flow Monitoring">
         </div>
         <div class="proj-body">
-          <div class="proj-code">DRC-x · 202x</div>
+          <div class="proj-code">2023</div>
           <h3>OzGanga-Water Flow Monitoring Technical Support </h3>
           <p>Water Flow Monitoring on Company Site.</p>
           <span class="proj-arrow">Open project →</span>
@@ -231,11 +252,11 @@
 
       <a href="projects/guardbuoy.html" class="proj-card" data-category="materials design">
         <div class="proj-thumb">
-          <span class="proj-thumb-bg">GB</span>
-          <span class="proj-thumb-tag tag">Materials</span>
+          <img src="assets/images/guardbuoy/initial-cad.png"
+               alt="GuardBuoy CAD">
         </div>
         <div class="proj-body">
-          <div class="proj-code">DRC-01 · 2024</div>
+          <div class="proj-code">2024</div>
           <h3>GuardBuoy — Autonomous Rescue Device</h3>
           <p>Materials & competitor analysis for a solar-powered autonomous water-rescue buoy using AI detection and thrusters.</p>
           <span class="proj-arrow">Open project →</span>
@@ -244,11 +265,11 @@
 
       <a href="projects/redback-car.html" class="proj-card" data-category="autonomous design">
         <div class="proj-thumb">
-          <span class="proj-thumb-bg">RB</span>
-          <span class="proj-thumb-tag tag">Autonomous</span>
+          <img src="assets/images/redback-autonomous-vehicle/main.jpg"
+               alt="Redback Vehicle">
         </div>
         <div class="proj-body">
-          <div class="proj-code">DRC-03 · 2023</div>
+          <div class="proj-code">2023</div>
           <h3>Redback Autonomous Line-Following Vehicle</h3>
           <p>Design and manufacture of a competition autonomous vehicle for DESN1000, meeting strict constraints on size, weight, and speed.</p>
           <span class="proj-arrow">Open project →</span>
@@ -257,11 +278,11 @@
 
       <a href="projects/streamlight.html" class="proj-card" data-category="material design">
         <div class="proj-thumb">
-          <span class="proj-thumb-bg">SL</span>
-          <span class="proj-thumb-tag tag">Material</span>
+          <img src="assets/images/streamlight/hero.png"
+               alt="StreamLight Render">
         </div>
         <div class="proj-body">
-          <div class="proj-code">DRC-03 · 2023</div>
+          <div class="proj-code">2024</div>
           <h3>StreamLight-Modular Hydro Turbine for Rural Communities </h3>
           <p>conceptual modular hydroelectric power system designed to provide 
             reliable renewable energy for rural communities with limited access 
@@ -270,7 +291,7 @@
         </div>
       </a>
 
-      <a href="projects/fuel-system.html" class="proj-card" data-category="aerospace design">
+      <!-- <a href="projects/fuel-system.html" class="proj-card" data-category="aerospace design">
         <div class="proj-thumb">
           <span class="proj-thumb-bg">FS</span>
           <span class="proj-thumb-tag tag">Aerospace</span>
@@ -281,7 +302,7 @@
           <p>Reference-aircraft analysis using DC-9 & 737NG to inform an original conceptual fuel system for AERO3110.</p>
           <span class="proj-arrow">Open project →</span>
         </div>
-      </a>
+      </a> -->
 
       <!-- ════════════════════════════════════════════════════
            ADD YOUR NEXT PROJECT HERE — copy the block above!
