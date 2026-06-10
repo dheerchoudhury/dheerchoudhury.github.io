@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreamLight Modular Hydro Turbine  | Dheer Roy Choudhury</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+/* PROJECT SNAPSHOT */
+
+.project-snapshot {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  margin-top: 3rem;
+  background: rgba(255,255,255,0.02);
+  overflow: hidden; /* important for clean rounded corners */
+}
+
+.snapshot-header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.snapshot-header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* 3x3 GRID */
+.snapshot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* EACH CELL */
+.snapshot-item {
+  padding: 1.5rem;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* remove right border on last col */
+.snapshot-item:nth-child(3n) {
+  border-right: none;
+}
+
+/* remove bottom border on last row (9 items total) */
+.snapshot-item:nth-last-child(-n+3) {
+  border-bottom: none;
+}
+
+.snapshot-item span {
+  display:block;
+  font-size:0.75rem;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  color:var(--text3);
+  margin-bottom:0.35rem;
+}
+
+.snapshot-item strong {
+  color:var(--white);
+  font-size:0.95rem;
+  line-height:1.4;
+}
+
+.carousel {
+  position: relative;
+}
+
+.slide {
+  display: none;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide img {
+  width: 100%;
+  display: block;
+}
+
+.slide-caption {
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  color: var(--text3);
+  background: rgba(255,255,255,0.03);
+  border-top: 1px solid var(--border);
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: rgba(0,0,0,0.6);
+  color: white;
+}
+
+.prev {
+  left: 12px;
+}
+
+.next {
+  right: 12px;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+
+  .snapshot-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .snapshot-item {
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .snapshot-item:nth-child(2n) {
+    border-right: none;
+  }
+
+  /* last row */
+  .snapshot-item:nth-child(5),
+  .snapshot-item:nth-child(6) {
+    border-bottom: none;
+  }
+
+}
+
+.process-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.process-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: rgba(255,255,255,0.02);
+}
+
+.process-card img {
+  width: 100%;
+  display: block;
+}
+
+.process-card h3 {
+  font-size: 1.15rem;
+  padding: 1.25rem 1.5rem 0.5rem;
+  margin: 0;
+}
+
+.process-card p {
+  padding: 0 1.5rem 1.5rem;
+  margin: 0;
+  color: var(--text2);
+}
+
+@media (max-width: 768px) {
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.decision-table {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: 1.5rem;
+}
+
+.decision-row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  border-bottom: 1px solid var(--border);
+}
+
+.decision-row:last-child {
+  border-bottom: none;
+}
+
+.decision-label {
+  padding: 1rem 1.25rem;
+  background: rgba(255,255,255,0.02);
+  border-right: 1px solid var(--border);
+  font-weight: 600;
+}
+
+.decision-text {
+  padding: 1rem 1.25rem;
+  color: var(--text2);
+}
+
+.process-card a {
+  display: block;
+}
+
+.process-card a img {
+  transition: transform 0.25s ease;
+}
+
+.process-card a:hover img {
+  transform: scale(1.02);
+}
+
+.pdf-preview {
+  position: relative;
+  display: block;
+}
+
+.pdf-badge {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: rgba(0,0,0,0.75);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+
+/* FIGURES */
+
+.project-figure {
+  margin: 2.5rem 0;
+}
+
+.project-figure img {
+  width:100%;
+  border-radius:var(--radius-lg);
+  border:1px solid var(--border);
+}
+
+.project-figure figcaption {
+  text-align:center;
+  margin-top:0.75rem;
+  color:var(--text3);
+  font-size:0.85rem;
+}
+.process-card video {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #000;
+}
+
+@media (max-width:768px){
+
+  .snapshot-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+}    
+    .proj-hero {
+      padding: 9rem 0 4rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .proj-hero::before {
+      content: '';
+      position: absolute;
+      top: -30%; right: -5%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .proj-meta-bar {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .proj-title { margin-bottom: 1rem; }
+    .proj-subtitle { font-size: 1.1rem; color: var(--text2); max-width: 620px; }
+
+    /* Info table */
+    .proj-info-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin: 3rem 0;
+    }
+    .info-cell {
+      padding: 1.5rem;
+      border-right: 1px solid var(--border);
+    }
+    .info-cell:last-child { border-right: none; }
+    .info-cell-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text3);
+      margin-bottom: 0.4rem;
+    }
+    .info-cell-value { font-size: 0.95rem; color: var(--white); }
+
+    /* Content */
+    .proj-content { max-width: 780px; }
+    .proj-content h2 {
+    margin: 3rem 0 1rem;
+    font-size: 1.6rem;
+    letter-spacing: -0.01em;
+    /* font-weight: 600; */
+    }
+    .proj-content p { margin-bottom: 1rem; }
+    .proj-content ul {
+      list-style: none;
+      margin: 0 0 1.5rem;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .proj-content ul li {
+      padding: 0.6rem 1rem 0.6rem 1.5rem;
+      color: var(--text2);
+      font-size: 0.925rem;
+      position: relative;
+    }
+    .proj-content ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* Image placeholder */
+    .img-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin: 2rem 0;
+      color: var(--text3);
+      font-size: 0.85rem;
+    }
+    .img-placeholder .big { font-size: 3rem; opacity: 0.3; }
+    /* Replace img-placeholder with a real <img> once you have images:
+       <img src="../assets/images/guardbuoy-main.jpg" alt="GuardBuoy render" style="width:100%; border-radius:12px; border:1px solid var(--border); margin:2rem 0;"> */
+
+    /* Nav back */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text3);
+      margin-bottom: 2.5rem;
+      transition: color var(--transition);
+    }
+    .back-link:hover { color: var(--accent); }
+
+    /* Next project */
+    .next-proj {
+      border-top: 1px solid var(--border);
+      margin-top: 5rem;
+      padding-top: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .proj-info-grid { grid-template-columns: repeat(2, 1fr); }
+      .info-cell:nth-child(2) { border-right: none; }
+      .info-cell:nth-child(3) { border-top: 1px solid var(--border); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ───────────────────────────────────────────────── -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">Dheer <span>RC</span></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../projects.html" class="active">Projects</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="https://www.linkedin.com/in/dheer-roy-choudhury/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+      <li><a href="https://github.com/dheerchoudhury" target="_blank" rel="noopener">GitHub ↗</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── PROJECT HERO ──────────────────────────────────────── -->
+<header class="proj-hero">
+  <div class="container">
+    <a href="../projects.html" class="back-link fade-up">← Back to projects</a>
+    <div class="proj-meta-bar fade-up delay-1">
+      <span class="tag">Materials</span>
+      <span class="tag">Design</span>
+    </div>
+    <h1 class="proj-title fade-up delay-1">StreamLight-Modular Hydro Turbine for Rural Communities</h1>
+    <p class="proj-subtitle fade-up delay-2">
+      Provide rural populations with limited access to traditional 
+      electrical infrastructure dependable renewable energy.<br>
+      DESN2000: Engineering Design and Professional Practice
+    </p>
+  </div>
+</header>
+
+<!-- ── PROJECT META ──────────────────────────────────────── -->
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- PROJECT SNAPSHOT -->
+<!-- ─────────────────────────────────────────────────────── -->
+
+<div class="container">
+
+  <div class="project-snapshot fade-up">
+
+    <div class="snapshot-header">
+      <h2>Project Snapshot</h2>
+    </div>
+
+    <div class="snapshot-grid">
+
+      <div class="snapshot-item">
+        <span>Year</span>
+        <strong>2024</strong>
+      </div>
+
+      <div class="snapshot-item">
+        <span>Duration</span>
+        <strong>10 Weeks</strong>
+      </div>
+
+      <div class="snapshot-item">
+        <span>Type</span>
+        <strong>Group Project (6 Members)</strong>
+      </div>
+
+      <div class="snapshot-item">
+        <span>Role</span>
+        <strong>Design Choices, Installation Requirements</strong>
+      </div>
+
+      <div class="snapshot-item">
+        <span>Tools</span>
+        <strong>SolidWorks, Functional Requirement Analysis</strong>
+      </div>
+
+      <div class="snapshot-item">
+        <span>Outcome</span>
+        <strong>71% Final Grade</strong>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- HERO IMAGE -->
+<!-- ─────────────────────────────────────────────────────── -->
+
+<section class="section" style="padding-top:2rem;">
+  <div class="container">
+
+    <figure class="project-figure fade-up">
+      <img
+        src="../assets/images/streamlight/hero.png"
+        alt="Final Hydro Turbine">
+      <figcaption>
+        Figure 1. Final Hydro Turbine.
+      </figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ─────────────────────────────────────────────────────── -->
+<!-- PROJECT CONTENT -->
+<!-- ─────────────────────────────────────────────────────── -->
+
+<section class="section">
+  <div class="container">
+
+    <div class="proj-content fade-up">
+
+      <div class="section-label">Project Overview</div>
+
+      <p>
+       StreamLight is a conceptual modular hydroelectric power system 
+       designed to provide reliable renewable energy for rural 
+       communities with limited access to conventional electricity infrastructure.
+      </p>
+
+      <p>
+       The project focused on developing a scalable and maintainable 
+       hydroelectric solution capable of operating in remote 
+       environments while minimising installation complexity 
+       and long-term maintenance requirements.
+      </p>
+
+      <!-- ================================================= -->
+
+      <h2>The Problem</h2>
+
+      <p>
+        Many rural communities face challenges accessing reliable 
+        electricity due to geographical isolation, infrastructure 
+        costs, and limited access to traditional power-generation 
+        systems.
+      </p>
+
+      <p>
+        The objective was to develop a renewable energy solution 
+        capable of generating continuous electrical power using 
+        naturally occurring river systems while remaining affordable, 
+        scalable, and practical to deploy in remote environments.
+      </p>
+
+      <!-- ================================================= -->
+
+      <h2>My Role</h2>
+
+      <ul>
+        <li>Contributed to stakeholder analysis and requirements development.</li>
+        <li>Evaluated competing solutions and benchmarked existing products.</li>
+        <li>Assisted with concept development and design refinement.</li>
+        <li>Assessed the impact of material selection on performance, cost, and manufacturability.</li>
+        <li>Investigated modular design approaches to improve maintainability and scalability.</li>
+        <li>Supported engineering decision-making through research and technical justification.</li>
+        <li>Collaborated within a multidisciplinary team to develop a practical solution for rural communities.</li>
+      </ul>
+
+      <!-- ================================================= -->
+<h2>Approach & Process</h2>
+
+<div class="process-grid">
+
+  <div class="process-card">
+
+  <div class="carousel">
+
+    <div class="slide active">
+      <img src="../assets/images/streamlight/sketch-1.jpg">
+      <div class="slide-caption">
+        Sketch showing flotation idea.
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="../assets/images/streamlight/sketch-2.jpg">
+      <div class="slide-caption">
+        Sketch on possible anchoring methods.
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="../assets/images/streamlight/sketch-3.jpg">
+      <div class="slide-caption">
+        Sketch showing preliminary configuration of turbines.
+      </div>
+    </div>
+
+    <button class="prev"><</button>
+    <button class="next">></button>
+
+  </div>
+
+  <h3>Initial Sketches</h3>
+
+  <p>
+    Drawing ideas to communicate geometry, assembly sequence,
+    and manufacturing requirements.
+  </p>
+
+</div>
+
+  <div class="process-card">
+    <img src="../assets/images/streamlight/three-turbines.png"
+         alt="Three Turbines">
+
+    <h3>Three Turbines Concept</h3>
+
+     <p>
+      Early-stage concept generation to explore three turbines, balancing power 
+      output against efficieny and manufacturing.
+    </p>
+  </div>
+
+<div class="process-card">
+
+  <a href="../assets/files/streamlight/engineering-drawing.pdf"
+     target="_blank"
+     rel="noopener"
+     class="pdf-preview">
+
+    <img src="../assets/images/streamlight/engineering-drawing-preview.jpg"
+         alt="Engineering Drawing Preview">
+
+    <span class="pdf-badge">📄 View PDF</span>
+
+  </a>
+
+  <h3>Engineering Drawing Package</h3>
+
+  <p>
+    Detailed assembly and manufacturing drawings developed during
+    concept refinement.
+  </p>
+
+</div>
+
+<div class="process-card">
+
+  <video controls preload="metadata">
+    <source src="../assets/videos/streamlight/video.mp4" type="video/mp4">
+  </video>
+
+  <h3>Final Video</h3>
+
+  <p>
+    Concept video to demonstrate final construction and in operation.
+  </p>
+</div>
+
+</div>
+<h2>Key Engineering Decisions & Trade-offs</h2>
+
+<div class="decision-table">
+
+  <div class="decision-row">
+    <div class="decision-label">Engineering Considerations</div>
+    <div class="decision-text">
+      Prioritised modularity to improve maintainability 
+      and simplify transportation.
+    </div>
+  </div>
+
+  <div class="decision-row">
+    <div class="decision-label">xxx</div>
+    <div class="decision-text">
+      Balanced structural durability against manufacturing cost.
+    </div>
+  </div>
+
+  <div class="decision-row">
+    <div class="decision-label">xxx</div>
+    <div class="decision-text">
+      Considered ease of installation alongside 
+      energy-generation performance.
+    </div>
+  </div>
+
+  <div class="decision-row">
+    <div class="decision-label">xxx</div>
+    <div class="decision-text">
+      Evaluated repairability and long-term reliability 
+      for remote operating environments.
+    </div>
+  </div>
+
+</div>
+
+      <!-- ================================================= -->
+
+      <h2>Results & Outcome</h2>
+
+      <p>
+        Developed a conceptual modular hydroelectric system 
+        capable of generating electrical power from flowing 
+        water without requiring major infrastructure.
+      </p>
+
+      <p>
+        The final design incorporated a modular frame, 
+        impulse-style turbine system, and generator integration 
+        strategy supported by CAD models, engineering drawings, 
+        and technical justification.
+      </p>
+
+      <!-- ================================================= -->
+
+      <h2>What I Learned</h2>
+
+      <p>
+        This project strengthened my understanding of systems-level 
+        engineering design and reinforced the importance of balancing 
+        technical performance with real-world implementation constraints.
+      </p>
+
+      <p>
+        I gained experience applying structured design methodologies 
+        while considering stakeholder needs, manufacturability, 
+        maintainability, and sustainability within a single 
+        engineering solution.
+      </p>
+
+      <!-- ================================================= -->
+
+      <div class="next-proj">
+
+        <div>
+          <div class="section-label">Next Project</div>
+
+          <a href="fuel-system.html"
+             style="font-family:var(--font-display);
+                    font-size:1.2rem;
+                    color:var(--white);">
+
+            Conceptual Fuel System Design →
+
+          </a>
+        </div>
+
+        <a href="../projects.html" class="btn btn-outline">
+          All Projects
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer>
+  <div class="container">
+    <p style="margin-bottom:0.75rem; font-family: var(--font-display); font-size:1.1rem; color: var(--text);">Dheer Roy Choudhury</p>
+    <p style="margin-bottom:1rem;">
+      <a href="https://github.com/dheerchoudhury" target="_blank" rel="noopener">GitHub</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.linkedin.com/in/dheer-roy-choudhury/" target="_blank" rel="noopener">LinkedIn</a>
+    </p>
+    <p>© Dheer Roy Choudhury · Built with GitHub Pages</p>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+  document.getElementById('hamburger').addEventListener('click', function() {
+    this.classList.toggle('open');
+    document.getElementById('nav-links').classList.toggle('open');
+  });
+</script>
+</body>
+</html>
