@@ -95,6 +95,22 @@
       100% { opacity: 0; transform: scaleY(1); transform-origin: bottom; }
     }
 
+    .hero-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    }
+
+    .profile-photo {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 40px rgba(46,204,113,0.15);
+    }
+
     /* ── Stats strip ──────────────────────────────────────── */
     .stats-strip {
       border-top: 1px solid var(--border);
@@ -256,17 +272,25 @@
         Aerospace Engineering · UNSW Sydney
       </div>
       <h1 class="fade-up delay-1">
-        Dheer<br>Roy <em>Choudhury</em>
+        Dheer<br> <em>Roy Choudhury</em>
       </h1>
       <p class="hero-desc fade-up delay-2">
-        Aerospace engineering student building a foundation in flight systems,
-        structural analysis, and technical design — with hands-on project
-        experience ranging from autonomous vehicles to aircraft fuel systems.
+        Aerospace Engineering student at UNSW with experience 
+        spanning aircraft design, autonomous systems, engineering analysis, 
+        and field-based technical support. Through university, competition, 
+        and industry projects, I enjoy solving practical engineering problems 
+        from concept development through testing and implementation.
       </p>
       <div class="hero-actions fade-up delay-3">
         <a href="projects.html" class="btn btn-primary">View Projects</a>
         <a href="about.html" class="btn btn-outline">About Me</a>
       </div>
+    
+    <div class="hero-photo">
+      <img src="assets/images/LinkedIn.png"
+         alt="Dheer Roy Choudhury"
+         class="profile-photo">
+    </div>
     </div>
   </div>
   <div class="hero-scroll">
@@ -279,16 +303,16 @@
 <div class="container">
   <div class="stats-strip">
     <div class="stat-item">
-      <div class="stat-num">3</div>
-      <div class="stat-label">Projects documented</div>
+      <div class="stat-num">5+</div>
+      <div class="stat-label">Engineering Projects</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">UNSW</div>
-      <div class="stat-label">Aerospace Engineering</div>
+      <div class="stat-num">Aerospace Engineering</div>
+      <div class="stat-label">UNSW</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">SYD</div>
-      <div class="stat-label">Sydney, Australia</div>
+      <!-- <div class="stat-num">SYD</div> -->
+      <div class="stat-label">Aircraft • Autonomous Systems • Design</div>
     </div>
   </div>
 </div>
@@ -301,18 +325,24 @@
     <div class="focus-grid">
       <div class="focus-item">
         <div class="focus-num">01</div>
-        <h3>Aerospace Systems</h3>
-        <p>Aircraft fuel systems, structural subsystem design, and flight mechanics analysis grounded in UNSW coursework and self-directed study.</p>
+        <h3>Aircraft Design & Aerospace Systems</h3>
+        <p>Aircraft conceptual design, subsystem integration, structural 
+          design, and aerospace engineering analysis developed through 
+          university coursework and competition aircraft projects.</p>
       </div>
       <div class="focus-item">
         <div class="focus-num">02</div>
-        <h3>Autonomous Systems</h3>
-        <p>Hands-on design and manufacture of autonomous vehicles — integrating sensors, control logic, and mechanical hardware under real constraints.</p>
+        <h3>Autonomous & Mechatronic Systems</h3>
+        <p>Development of autonomous engineering systems involving sensors, 
+          control logic, embedded hardware, and system integration for 
+          real-world operation.</p>
       </div>
       <div class="focus-item">
         <div class="focus-num">03</div>
-        <h3>Materials & Analysis</h3>
-        <p>Competitive and materials analysis for engineering products, including marine-grade systems and structural reliability in harsh environments.</p>
+        <h3>Engineering Design & Product Development</h3>
+        <p>Applying engineering design methodology, requirements analysis, 
+          trade studies, materials selection, manufacturability, and 
+          stakeholder-focused decision making to practical projects.</p>
       </div>
     </div>
   </div>
@@ -330,41 +360,41 @@
     </div>
     <div class="proj-preview">
 
-      <a href="projects/guardbuoy.html" class="proj-card">
+      <a href="projects/dbf.html" class="proj-card">
         <div class="proj-thumb">
-          <span class="proj-thumb-label">GB</span>
-          <span class="proj-thumb-tag tag">Materials</span>
+          <img src="assets/images/dbf/hero.JPG"
+               alt="DBF Aircraft">
         </div>
         <div class="proj-body">
-          <div class="proj-code">DRC-01 · 2024</div>
-          <h3>GuardBuoy — Autonomous Rescue Device</h3>
-          <p>Materials selection and competitor analysis for a solar-powered autonomous water-rescue buoy.</p>
+          <div class="proj-code">2025/2026</div>
+          <h3>Design Build Fly Competition 2025/26 (AIAA)</h3>
+          <p>Design, Manufacture and Flying of a Competition Remote Controlled Aircraft.</p>
           <span class="proj-arrow">Open project →</span>
         </div>
       </a>
 
-      <a href="projects/fuel-system.html" class="proj-card">
+      <a href="projects/ozganga.html" class="proj-card">
         <div class="proj-thumb">
-          <span class="proj-thumb-label">FS</span>
-          <span class="proj-thumb-tag tag">Aerospace</span>
+          <img src="assets/images/ozganga/hero.jpeg"
+               alt="Flow Monitoring">
         </div>
         <div class="proj-body">
-          <div class="proj-code">DRC-02 · 2024</div>
-          <h3>Conceptual Fuel System Design</h3>
-          <p>Reference-aircraft analysis using DC-9 & 737NG to design an original aircraft fuel system.</p>
+          <div class="proj-code">2023</div>
+          <h3>OzGanga-Water Flow Monitoring Technical Support </h3>
+          <p>Water Flow Monitoring on Company Site.</p>
           <span class="proj-arrow">Open project →</span>
         </div>
       </a>
 
       <a href="projects/redback-car.html" class="proj-card">
         <div class="proj-thumb">
-          <span class="proj-thumb-label">RB</span>
-          <span class="proj-thumb-tag tag">Autonomous</span>
+          <img src="assets/images/redback-autonomous-vehicle/main.jpg"
+               alt="Redback Vehicle">
         </div>
         <div class="proj-body">
-          <div class="proj-code">DRC-03 · 2023</div>
+          <div class="proj-code">2023</div>
           <h3>Redback Autonomous Line-Following Vehicle</h3>
-          <p>Design and manufacture of an autonomous line-following vehicle for DESN1000 competition.</p>
+          <p>Design and manufacture of a competition autonomous vehicle for DESN1000, meeting strict constraints on size, weight, and speed.</p>
           <span class="proj-arrow">Open project →</span>
         </div>
       </a>
