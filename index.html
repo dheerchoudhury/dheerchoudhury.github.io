@@ -113,33 +113,44 @@
 
     /* ── Stats strip ──────────────────────────────────────── */
     .stats-strip {
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 2.5rem 0;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 3rem 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
     }
+
     .stat-item {
-      text-align: center;
-      padding: 1rem 2rem;
-      position: relative;
+    text-align: center;
+    padding: 0 2rem;
+    position: relative;
     }
+
     .stat-item + .stat-item::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 20%; bottom: 20%;
-      width: 1px;
-      background: var(--border);
+    content: '';
+    position: absolute;
+    left: 0; top: 25%; bottom: 25%;
+    width: 1px;
+    background: var(--border);
     }
-    .stat-num {
-      font-family: var(--font-display);
-      font-size: 2.4rem;
-      color: var(--accent);
-      line-height: 1;
-      margin-bottom: 0.4rem;
-    }
-    .stat-label { font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text3); }
+
+  .stat-num {
+  font-family: var(--font-display);
+  font-size: 2rem;           /* slightly smaller than 2.4rem */
+  color: var(--accent);
+  line-height: 1.2;
+  margin-bottom: 0.8rem;      /* more breathing room */
+  font-weight: 600;
+  }
+
+  .stat-label { 
+  font-size: 0.8rem; 
+  letter-spacing: 0.06em; 
+  text-transform: uppercase; 
+  color: var(--text3);
+  line-height: 1.5;          /* more legible */
+  }
 
     /* ── Focus areas ──────────────────────────────────────── */
     .focus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; margin-top: 3rem; }
@@ -199,14 +210,21 @@
       color: inherit;
     }
     .proj-thumb {
-      height: 180px;
-      background: var(--surface2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-bottom: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
+    height: 200px;
+    background: var(--surface2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    }
+
+    .proj-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;           /* KEY: scales image to fill without distortion */
+    object-position: center;     /* centers the crop */
     }
     .proj-thumb-label {
       font-family: var(--font-display);
@@ -285,7 +303,7 @@
         <a href="projects.html" class="btn btn-primary">View Projects</a>
         <a href="about.html" class="btn btn-outline">About Me</a>
       </div>
-    
+    </div>
     <div class="hero-photo">
       <img src="assets/images/LinkedIn.png"
          alt="Dheer Roy Choudhury"
@@ -307,12 +325,12 @@
       <div class="stat-label">Engineering Projects</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">Aerospace Engineering</div>
-      <div class="stat-label">UNSW</div>
+      <div class="stat-num">3</div>
+      <div class="stat-label">Focus Areas</div>
     </div>
     <div class="stat-item">
-      <!-- <div class="stat-num">SYD</div> -->
-      <div class="stat-label">Aircraft • Autonomous Systems • Design</div>
+      <div class="stat-num">UNSW</div>
+      <div class="stat-label">Aerospace Engineering</div>
     </div>
   </div>
 </div>
