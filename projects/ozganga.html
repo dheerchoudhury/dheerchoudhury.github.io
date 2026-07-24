@@ -64,45 +64,6 @@
   line-height:1.4;
 }
 
-.carousel {
-  position: relative;
-}
-
-.slide {
-  display: none;
-}
-
-.slide.active {
-  display: block;
-}
-
-.slide img {
-  width: 100%;
-  display: block;
-}
-
-.slide-caption {
-  padding: 0.75rem 1rem;
-  font-size: 0.85rem;
-  color: var(--text3);
-  background: rgba(255,255,255,0.03);
-  border-top: 1px solid var(--border);
-}
-
-.prev,
-.next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 42px;
-  height: 42px;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  background: rgba(0,0,0,0.6);
-  color: white;
-}
-
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
 
@@ -713,36 +674,6 @@
     this.classList.toggle('open');
     document.getElementById('nav-links').classList.toggle('open');
   });
-
-document.querySelectorAll('.carousel').forEach(carousel => {
-
-  const slides = carousel.querySelectorAll('.slide');
-  const prev = carousel.querySelector('.prev');
-  const next = carousel.querySelector('.next');
-
-  let current = 0;
-
-  function showSlide(index) {
-
-    slides.forEach(slide => {
-      slide.classList.remove('active');
-    });
-
-    slides[index].classList.add('active');
-
-  }
-
-  next.addEventListener('click', () => {
-    current = (current + 1) % slides.length;
-    showSlide(current);
-  });
-
-  prev.addEventListener('click', () => {
-    current = (current - 1 + slides.length) % slides.length;
-    showSlide(current);
-  });
-
-});
 </script>
 </body>
 </html>
